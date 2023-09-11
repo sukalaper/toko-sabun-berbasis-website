@@ -7,28 +7,25 @@
     <link rel="stylesheet" href="assets/css/pages/auth.css">
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
     <style>
-      /* CSS untuk menengahkan elemen dan animasi */
       body {
         background-color: #FAFAFA;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh; /* Mengisi tinggi sesuai tinggi layar */
-        margin: 0; /* Menghilangkan margin default */
+        height: 100vh;
+        margin: 0; 
       }
-      /* Gaya elemen alert */
       .alert {
-        background-color: #FBFBFB; /* Warna latar belakang elemen */
-        padding: 20px; /* Ruang di dalam elemen */
-        border-radius: 5px; /* Sudut elemen */
-        opacity: 0; /* Elemen awalnya tidak terlihat */
+        background-color: #FBFBFB;
+        padding: 20px; 
+        border-radius: 5px; 
+        opacity: 0; 
         border: 1px solid;
         border-radius: 6px;
-        transition: opacity 0.6s ease-in-out; /* Transisi efek fade */
-        text-align: center; /* Teks di tengah elemen */
+        transition: opacity 0.6s ease-in-out; 
+        text-align: center; 
         font-size: 26px; 
       }
-      /* Animasi tampil */
       .alert.show {
         opacity: 0.8;
       }
@@ -40,7 +37,6 @@
       Password salah
     </div>
     <script>
-      // JavaScript untuk menambahkan class "show" setelah elemen dimuat
       document.addEventListener("DOMContentLoaded", function () {
         const alertElement = document.querySelector(".alert");
         alertElement.classList.add("show");
