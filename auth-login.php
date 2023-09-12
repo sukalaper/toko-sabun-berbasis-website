@@ -23,10 +23,9 @@ if (!isset($_SESSION['log'])) {
   header('location:index.php');
 }
 
-// Di halaman login.php (atau halaman login Anda), tampilkan pesan kesalahan jika ada
 if (isset($_SESSION['error_message'])) {
   echo '<div class="error">' . $_SESSION['error_message'] . '</div>';
-  unset($_SESSION['error_message']); // Hapus pesan kesalahan agar tidak ditampilkan lagi
+  unset($_SESSION['error_message']); 
 }
 ?>
 
@@ -48,7 +47,7 @@ if (isset($_SESSION['error_message'])) {
         <div class="col-lg-5 col-12">
           <div id="auth-left">
             <div class="auth-logo">
-              <a href="index.php"><img src="assets/images/logo/logo.svg" alt="Logo"></a>
+              <a href="#"><img src="assets/images/logo/logo.svg" alt="Logo"></a>
             </div>
             <h1 class="auth-title">Halaman Admin</h1>
             <p class="auth-subtitle mb-5">Masuk dengan akun yang telah Anda buat.</p>

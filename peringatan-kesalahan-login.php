@@ -12,11 +12,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 100vh; 
         margin: 0; 
       }
       .alert {
-        background-color: #FBFBFB;
+        background-color: #FBFBFB; 
         padding: 20px; 
         border-radius: 5px; 
         opacity: 0; 
