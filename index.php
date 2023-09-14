@@ -105,257 +105,109 @@ require 'cek.php';
         <section class="section">
           <div class="card">
             <div class="card-header">
-            Tabel Pengelolaan Data Barang
+            <a href="kelola_stok/export-barang-awal.php" class="btn btn-primary" style="float: right; margin-left: 12px;">
+              <span class="bi bi-plus"></span> Export Data 
+            </a>
             <button type="button" class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#myModal">
               <span class="bi bi-plus"></span> Tambah Barang Baru 
             </button>
             </div>
             <div class="card-body">
-              <table class="table table-striped" id="table1">
+              <?php
+                $ambildatastok = mysqli_query($conn,"SELECT * FROM stok WHERE jumlahbarang < 5");
+                while($fetch=mysqli_fetch_array($ambildatastok)){
+                $namabarang = $fetch['namabarang'];
+              ?>
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-triangle"></i> <strong>Perhatian!</strong> Stok barang <?=$namabarang;?> menipis.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </div>
+            <?php
+              }
+            ?>
+              <table class="table table-hover striped-row" id="table1">
                 <thead>
                   <tr>
+                    <th>No</th>
                     <th>Nama Barang</th>
                     <th>Satuan Berat</th>
                     <th>Harga Modal</th>
                     <th>Harga Jual</th>
                     <th>Jumlah Barang</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php
+                    $result_ambil_semua_data_stok = mysqli_query($conn,"SELECT * FROM stok");
+                    $i = 1;
+                    while($data=mysqli_fetch_array($result_ambil_semua_data_stok)){
+                      $namabarang = $data['namabarang'];
+                      $satuanberat = $data['satuanberat'];
+                      $hargamodal = $data['hargamodal'];
+                      $hargajual = $data['hargajual'];
+                      $jumlahbarang = $data['jumlahbarang'];
+                      $idbarang = $data['idbarang'];
+                  ?>
                   <tr>
-                    <td>Graiden</td>
-                    <td>vehicula.aliquet@semconsequat.co.uk</td>
-                    <td>076 4820 8838</td>
-                    <td>Offenburg</td>
+                    <td> <?=$i++;?> </td>
+                    <td> <?=$namabarang;?> </td>
+                    <td> <?=$satuanberat;?> </td>
+                    <td> <?=$hargamodal;?> </td>
+                    <td> <?=$hargajual;?> </td>
+                    <td> <?=$jumlahbarang;?> </td>
                     <td>
-                      <span class="badge bg-success">Active</span>
+                      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$idbarang;?>">
+                        <i class="bi bi-pencil-square"></i>
+                      </button>
+                      <input type="hidden" name="barangdihapus" value=" <?=$idbarang;?>">
+                      <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#delete<?=$idbarang;?>">
+                        <i class="bi bi-trash"></i>
+                      </button>  
                     </td>
                   </tr>
-                  <tr>
-                    <td>Dale</td>
-                    <td>fringilla.euismod.enim@quam.ca</td>
-                    <td>0500 527693</td>
-                    <td>New Quay</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Nathaniel</td>
-                    <td>mi.Duis@diam.edu</td>
-                    <td>(012165) 76278</td>
-                    <td>Grumo Appula</td>
-                    <td>
-                      <span class="badge bg-danger">Inactive</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Darius</td>
-                    <td>velit@nec.com</td>
-                    <td>0309 690 7871</td>
-                    <td>Ways</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Oleg</td>
-                    <td>rhoncus.id@Aliquamauctorvelit.net</td>
-                    <td>0500 441046</td>
-                    <td>Rossignol</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kermit</td>
-                    <td>diam.Sed.diam@anteVivamusnon.org</td>
-                    <td>(01653) 27844</td>
-                    <td>Patna</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Jermaine</td>
-                    <td>sodales@nuncsit.org</td>
-                    <td>0800 528324</td>
-                    <td>Mold</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ferdinand</td>
-                    <td>gravida.molestie@tinciduntadipiscing.org</td>
-                    <td>(016977) 4107</td>
-                    <td>Marlborough</td>
-                    <td>
-                      <span class="badge bg-danger">Inactive</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kuame</td>
-                    <td>Quisque.purus@mauris.org</td>
-                    <td>(0151) 561 8896</td>
-                    <td>Tresigallo</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Deacon</td>
-                    <td>Duis.a.mi@sociisnatoquepenatibus.com</td>
-                    <td>07740 599321</td>
-                    <td>Karapınar</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Channing</td>
-                    <td>tempor.bibendum.Donec@ornarelectusante.ca</td>
-                    <td>0845 46 49</td>
-                    <td>Warrnambool</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Aladdin</td>
-                    <td>sem.ut@pellentesqueafacilisis.ca</td>
-                    <td>0800 1111</td>
-                    <td>Bothey</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Cruz</td>
-                    <td>non@quisturpisvitae.ca</td>
-                    <td>07624 944915</td>
-                    <td>Shikarpur</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Keegan</td>
-                    <td>molestie.dapibus@condimentumDonecat.edu</td>
-                    <td>0800 200103</td>
-                    <td>Assen</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ray</td>
-                    <td>placerat.eget@sagittislobortis.edu</td>
-                    <td>(0112) 896 6829</td>
-                    <td>Hofors</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Maxwell</td>
-                    <td>diam@dapibus.org</td>
-                    <td>0334 836 4028</td>
-                    <td>Thane</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Carter</td>
-                    <td>urna.justo.faucibus@orci.com</td>
-                    <td>07079 826350</td>
-                    <td>Biez</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Stone</td>
-                    <td>velit.Aliquam.nisl@sitametrisus.com</td>
-                    <td>0800 1111</td>
-                    <td>Olivar</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Berk</td>
-                    <td>fringilla.porttitor.vulputate@taciti.edu</td>
-                    <td>(0101) 043 2822</td>
-                    <td>Sanquhar</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Philip</td>
-                    <td>turpis@euenimEtiam.org</td>
-                    <td>0500 571108</td>
-                    <td>Okara</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kibo</td>
-                    <td>feugiat@urnajustofaucibus.co.uk</td>
-                    <td>07624 682306</td>
-                    <td>La Cisterna</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Bruno</td>
-                    <td>elit.Etiam.laoreet@luctuslobortisClass.edu</td>
-                    <td>07624 869434</td>
-                    <td>Rocca d"Arce</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Leonard</td>
-                    <td>blandit.enim.consequat@mollislectuspede.net</td>
-                    <td>0800 1111</td>
-                    <td>Lobbes</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Hamilton</td>
-                    <td>mauris@diam.org</td>
-                    <td>0800 256 8788</td>
-                    <td>Sanzeno</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Harding</td>
-                    <td>Lorem.ipsum.dolor@etnetuset.com</td>
-                    <td>0800 1111</td>
-                    <td>Obaix</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Emmanuel</td>
-                    <td>eget.lacus.Mauris@feugiatSednec.org</td>
-                    <td>(016977) 8208</td>
-                    <td>Saint-Remy-Geest</td>
-                    <td>
-                      <span class="badge bg-success">Active</span>
-                    </td>
-                  </tr>
+                  <div class="modal fade" id="edit<?=$idbarang;?>">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Edit Barang</h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <form method="post">
+                          <div class="modal-body">
+                            <input type="hidden" name="idbarang" value=" <?=$idbarang;?>">
+                            <input type="text" name="namabarang" value=" <?=$namabarang;?>" class="form-control mb-3" required>
+                            <input type="number" name="hargamodal" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Modal (Rp)" class="form-control mb-0" required>
+                            <p style="font-size: 1px; color: red;">*Jika harga barang adalah Rp1.000 isi kolom dengan angka 1</p>
+                            <input type="number" name="satuanberat" placeholder="Satuan Berat" class="form-control mb-0" required>
+                            <p style="font-size: 1px; color: red;">*Secara matematis satuan <em>Gram</em> dan <em>Mili</em> adalah ukuran yang sama </p>
+                            <input type="number" name="hargajual" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Jual (Rp)" class="form-control mb-3" required>
+                            <button type="submit" class="btn btn-primary" name="updatebarang">Submit</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="delete<?=$idbarang;?>">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Hapus Barang?</h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <form method="post">
+                          <div class="modal-body">
+                            <input type="hidden" name="idbarang" value="<?=$idbarang;?>"> Apakah Anda Yakin Ingin Menghapus <?=$namabarang;?> <?=$satuanberat;?>g/mL?
+                            <button type="submit" class="btn btn-danger col-12 mt-3" name="hapusbarang">Hapus</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <?php 
+                    }
+                  ?>
                 </tbody>
               </table>
             </div>
@@ -366,7 +218,7 @@ require 'cek.php';
             <div class="float-start">
               <p>2021 &copy; Mazer</p>
             </div>
-            <div class="float-end">
+            <div class="float-md-end">
               <p>Crafted with <span class="text-danger">
                 <i class="bi bi-heart"></i>
               </span> by <a href="https://saugi.me">Saugi</a>
@@ -381,4 +233,26 @@ require 'cek.php';
     <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
     <script src="assets/js/pages/simple-datatables.js"></script>
   </body>
+<div class="modal fade" id="myModal">
+ <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Tambah Barang Baru</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <form method="post">
+      <div class="modal-body">
+        <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control mb-3" required>
+          <input type="number" name="hargamodal" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Modal (Rp)" class="form-control mb-0" required>
+          <p style="font-size: 1px; color: red;">*Jika harga barang adalah Rp1.000 isi kolom dengan angka 1</p>
+          <input type="number" name="satuanberat" placeholder="Satuan Berat" class="form-control mb-0" required>
+          <p style="font-size: 1px; color: red;">*Secara matematis, satuan <em>Gram</em> dan <em>Mili</em> adalah ukuran yang sama </p>
+          <input type="number" name="jumlahbarang" placeholder="Jumlah Barang" class="form-control mb-3" required>
+          <input type="number" name="hargajual" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Jual (Rp)" class="form-control mb-3" required>
+          <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 </html>

@@ -22,13 +22,7 @@ if (!isset($_SESSION['log'])) {
 } else {
   header('location:index.php');
 }
-
-if (isset($_SESSION['error_message'])) {
-  echo '<div class="error">' . $_SESSION['error_message'] . '</div>';
-  unset($_SESSION['error_message']); 
-}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +64,7 @@ if (isset($_SESSION['error_message'])) {
                   Biarkan saya tetap masuk
                 </label>
               </div>
-              <button href="index.php" name="login" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+              <button href="index.php" name="login" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Masuk</button>
             </form>
           </div>
         </div>
