@@ -1,51 +1,34 @@
-<?php 
-session_start();
+<?php
 session_unset();
 session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="assets/css/pages/auth.css">
-    <link rel="stylesheet" href="assets/css/shared/iconly.css">
-    <style>
-      body {
-        background-color: #FAFAFA;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; 
-        margin: 0; 
-      }
-      .alert {
-        background-color: #FBFBFB; 
-        padding: 20px; 
-        border-radius: 5px; 
-        opacity: 0; 
-        border: 1px solid;
-        border-radius: 6px;
-        transition: opacity 0.6s ease-in-out; 
-        text-align: center; 
-        font-size: 26px; 
-      }
-      .alert.show {
-        opacity: 0.8;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="alert alert-light-success color-success">
-      <i class="bi bi-check-circle"></i>
-      Keluar berhasil
-    </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const alertElement = document.querySelector(".alert");
-        alertElement.classList.add("show");
-      });
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="assets/css/main/app.css">
+  <link rel="stylesheet" href="assets/css/main/app-dark.css">
+  <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/extensions/sweetalert2/sweetalert2.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/extensions/sweetalert2/sweetalert2.min.js"></script>
+  <script src="assets/js/pages/sweetalert2.js"></script>
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Logout Berhasil',
+      text: 'Anda telah berhasil logout',
+      showConfirmButton: false,
+      timer: 1500,            
+      timerProgressBar: true,
+    }).then(function() {
+      window.location.href = 'auth-login.php';
+    });
+  </script>
+</body>
 </html>

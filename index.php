@@ -14,6 +14,8 @@ require 'cek.php';
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
     <link rel="stylesheet" href="assets/css/shared/iconly.css">
+    <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css">
+    <link rel="stylesheet" href="assets/css/pages/simple-datatables.css">
   </head>
   <body>
     <div id="app">
@@ -22,19 +24,19 @@ require 'cek.php';
           <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
               <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                   <img src="assets/images/logo/logo.svg" alt="Logo" srcset="">
                 </a>
               </div>
               <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
                   <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2" opacity=".3"></path>
-                    <g transform="translate(-210 -1)">
-                      <path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path>
-                      <circle cx="220.5" cy="11.5" r="4"></circle>
-                      <path d="m214 5l1.5 1.5m5 14v-2m6.5-.5l-1.5-1.5M214 18l1.5-1.5m-4-5h2m14 0h2"></path>
-                    </g>
+                  <path d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2" opacity=".3"></path>
+                  <g transform="translate(-210 -1)">
+                  <path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path>
+                  <circle cx="220.5" cy="11.5" r="4"></circle>
+                  <path d="m214 5l1.5 1.5m5 14v-2m6.5-.5l-1.5-1.5M214 18l1.5-1.5m-4-5h2m14 0h2"></path>
+                  </g>
                   </g>
                 </svg>
                 <div class="form-check form-switch fs-6">
@@ -55,15 +57,15 @@ require 'cek.php';
           <div class="sidebar-menu">
             <ul class="menu">
               <li class="sidebar-title">Akumulasi Barang</li>
-              <li class="sidebar-item active ">
-                <a href="index.html" class='sidebar-link'>
+              <li class="sidebar-item active">
+                <a href="index.php" class='sidebar-link'>
                   <i class="bi bi-grid-fill"></i>
                   <span>Barang Awal</span>
                 </a>
               </li>
               <li class="sidebar-title">Kelola Barang</li>
-              <li class="sidebar-item  ">
-                <a href="https://zuramai.github.io/mazer/docs" class='sidebar-link'>
+              <li class="sidebar-item">
+                <a href="barang-masuk.php" class='sidebar-link'>
                   <i class="bi bi-bag-plus-fill"></i>
                   <span>Barang Masuk</span>
                 </a>
@@ -75,17 +77,17 @@ require 'cek.php';
                 </a>
               </li>
               <li class="sidebar-title">Rekap Penjualan</li> 
-                <a href="#" class='sidebar-link'>
-                  <i class="bi bi-cash"></i>
-                  <span>Penghitungan Laba</span>
-                </a>
-            </li>
-            <li class="sidebar-title">Halaman Administrator</li>
+              <a href="perhitungan-laba.php" class='sidebar-link'>
+                <i class="bi bi-cash"></i>
+                <span>Penghitungan Laba</span>
+              </a>
+              </li>
+              <li class="sidebar-title">Halaman Administrator</li>
               <a href="auth-logout.php" class='sidebar-link'>
                 <i class="bi bi bi-box-arrow-in-right"></i>
                 <span>Keluar Halaman</span>
               </a>
-            </li>
+              </li>
             </ul>
           </div>
         </div>
@@ -98,261 +100,267 @@ require 'cek.php';
         </header>
         <div class="page-heading">
           <h3>Toko Sabun Sukalaper</h3>
+          <p class="text-subtitle text-muted">Di mohon mengisi data dengan se-teliti mungkin agar tidak terjadi kesalahan.</p>
         </div>
-        <div class="page-content">
-          <section class="row">
-            <div class="col-12 col-lg-9">
-              <div class="row">
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                          <div class="stats-icon purple mb-2">
-                            <i class="iconly-boldShow"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Profile Views</h6>
-                          <h6 class="font-extrabold mb-0">112.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                          <div class="stats-icon blue mb-2">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                          <div class="stats-icon green mb-2">
-                            <i class="iconly-boldAdd-User"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Following</h6>
-                          <h6 class="font-extrabold mb-0">80.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                          <div class="stats-icon red mb-2">
-                            <i class="iconly-boldBookmark"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Saved Post</h6>
-                          <h6 class="font-extrabold mb-0">112</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <h4>Profile Visit</h4>
-                    </div>
-                    <div class="card-body">
-                      <div id="chart-profile-visit"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12 col-xl-4">
-                  <div class="card">
-                    <div class="card-header">
-                      <h4>Profile Visit</h4>
-                    </div>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="d-flex align-items-center">
-                            <svg class="bi text-primary" width="32" height="32" fill="blue" style="width:10px">
-                              <use xlink:href="assets/images/bootstrap-icons.svg#circle-fill" />
-                            </svg>
-                            <h5 class="mb-0 ms-3">Europe</h5>
-                          </div>
-                        </div>
-                        <div class="col-6">
-                          <h5 class="mb-0">862</h5>
-                        </div>
-                        <div class="col-12">
-                          <div id="chart-europe"></div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="d-flex align-items-center">
-                            <svg class="bi text-success" width="32" height="32" fill="blue" style="width:10px">
-                              <use xlink:href="assets/images/bootstrap-icons.svg#circle-fill" />
-                            </svg>
-                            <h5 class="mb-0 ms-3">America</h5>
-                          </div>
-                        </div>
-                        <div class="col-6">
-                          <h5 class="mb-0">375</h5>
-                        </div>
-                        <div class="col-12">
-                          <div id="chart-america"></div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="d-flex align-items-center">
-                            <svg class="bi text-danger" width="32" height="32" fill="blue" style="width:10px">
-                              <use xlink:href="assets/images/bootstrap-icons.svg#circle-fill" />
-                            </svg>
-                            <h5 class="mb-0 ms-3">Indonesia</h5>
-                          </div>
-                        </div>
-                        <div class="col-6">
-                          <h5 class="mb-0">1025</h5>
-                        </div>
-                        <div class="col-12">
-                          <div id="chart-indonesia"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-xl-8">
-                  <div class="card">
-                    <div class="card-header">
-                      <h4>Latest Comments</h4>
-                    </div>
-                    <div class="card-body">
-                      <div class="table-responsive">
-                        <table class="table table-hover table-lg">
-                          <thead>
-                            <tr>
-                              <th>Name</th>
-                              <th>Comment</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="col-3">
-                                <div class="d-flex align-items-center">
-                                  <div class="avatar avatar-md">
-                                    <img src="assets/images/faces/5.jpg">
-                                  </div>
-                                  <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                </div>
-                              </td>
-                              <td class="col-auto">
-                                <p class=" mb-0">Congratulations on your graduation!</p>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td class="col-3">
-                                <div class="d-flex align-items-center">
-                                  <div class="avatar avatar-md">
-                                    <img src="assets/images/faces/2.jpg">
-                                  </div>
-                                  <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                </div>
-                              </td>
-                              <td class="col-auto">
-                                <p class=" mb-0">Wow amazing design! Can you make another tutorial for this design?</p>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <section class="section">
+          <div class="card">
+            <div class="card-header">
+            Tabel Pengelolaan Data Barang
+            <button type="button" class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#myModal">
+              <span class="bi bi-plus"></span> Tambah Barang Baru 
+            </button>
             </div>
-            <div class="col-12 col-lg-3">
-              <div class="card">
-                <div class="card-body py-4 px-4">
-                  <div class="d-flex align-items-center">
-                    <div class="avatar avatar-xl">
-                      <img src="assets/images/faces/1.jpg" alt="Face 1">
-                    </div>
-                    <div class="ms-3 name">
-                      <h5 class="font-bold">John Duck</h5>
-                      <h6 class="text-muted mb-0">@johnducky</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header">
-                  <h4>Recent Messages</h4>
-                </div>
-                <div class="card-content pb-4">
-                  <div class="recent-message d-flex px-4 py-3">
-                    <div class="avatar avatar-lg">
-                      <img src="assets/images/faces/4.jpg">
-                    </div>
-                    <div class="name ms-4">
-                      <h5 class="mb-1">Hank Schrader</h5>
-                      <h6 class="text-muted mb-0">@johnducky</h6>
-                    </div>
-                  </div>
-                  <div class="recent-message d-flex px-4 py-3">
-                    <div class="avatar avatar-lg">
-                      <img src="assets/images/faces/5.jpg">
-                    </div>
-                    <div class="name ms-4">
-                      <h5 class="mb-1">Dean Winchester</h5>
-                      <h6 class="text-muted mb-0">@imdean</h6>
-                    </div>
-                  </div>
-                  <div class="recent-message d-flex px-4 py-3">
-                    <div class="avatar avatar-lg">
-                      <img src="assets/images/faces/1.jpg">
-                    </div>
-                    <div class="name ms-4">
-                      <h5 class="mb-1">John Dodol</h5>
-                      <h6 class="text-muted mb-0">@dodoljohn</h6>
-                    </div>
-                  </div>
-                  <div class="px-4">
-                    <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Start Conversation</button>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header">
-                  <h4>Visitors Profile</h4>
-                </div>
-                <div class="card-body">
-                  <div id="chart-visitors-profile"></div>
-                </div>
-              </div>
+            <div class="card-body">
+              <table class="table table-striped" id="table1">
+                <thead>
+                  <tr>
+                    <th>Nama Barang</th>
+                    <th>Satuan Berat</th>
+                    <th>Harga Modal</th>
+                    <th>Harga Jual</th>
+                    <th>Jumlah Barang</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Graiden</td>
+                    <td>vehicula.aliquet@semconsequat.co.uk</td>
+                    <td>076 4820 8838</td>
+                    <td>Offenburg</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Dale</td>
+                    <td>fringilla.euismod.enim@quam.ca</td>
+                    <td>0500 527693</td>
+                    <td>New Quay</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Nathaniel</td>
+                    <td>mi.Duis@diam.edu</td>
+                    <td>(012165) 76278</td>
+                    <td>Grumo Appula</td>
+                    <td>
+                      <span class="badge bg-danger">Inactive</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Darius</td>
+                    <td>velit@nec.com</td>
+                    <td>0309 690 7871</td>
+                    <td>Ways</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Oleg</td>
+                    <td>rhoncus.id@Aliquamauctorvelit.net</td>
+                    <td>0500 441046</td>
+                    <td>Rossignol</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Kermit</td>
+                    <td>diam.Sed.diam@anteVivamusnon.org</td>
+                    <td>(01653) 27844</td>
+                    <td>Patna</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Jermaine</td>
+                    <td>sodales@nuncsit.org</td>
+                    <td>0800 528324</td>
+                    <td>Mold</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Ferdinand</td>
+                    <td>gravida.molestie@tinciduntadipiscing.org</td>
+                    <td>(016977) 4107</td>
+                    <td>Marlborough</td>
+                    <td>
+                      <span class="badge bg-danger">Inactive</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Kuame</td>
+                    <td>Quisque.purus@mauris.org</td>
+                    <td>(0151) 561 8896</td>
+                    <td>Tresigallo</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Deacon</td>
+                    <td>Duis.a.mi@sociisnatoquepenatibus.com</td>
+                    <td>07740 599321</td>
+                    <td>Karapınar</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Channing</td>
+                    <td>tempor.bibendum.Donec@ornarelectusante.ca</td>
+                    <td>0845 46 49</td>
+                    <td>Warrnambool</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Aladdin</td>
+                    <td>sem.ut@pellentesqueafacilisis.ca</td>
+                    <td>0800 1111</td>
+                    <td>Bothey</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Cruz</td>
+                    <td>non@quisturpisvitae.ca</td>
+                    <td>07624 944915</td>
+                    <td>Shikarpur</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Keegan</td>
+                    <td>molestie.dapibus@condimentumDonecat.edu</td>
+                    <td>0800 200103</td>
+                    <td>Assen</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Ray</td>
+                    <td>placerat.eget@sagittislobortis.edu</td>
+                    <td>(0112) 896 6829</td>
+                    <td>Hofors</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Maxwell</td>
+                    <td>diam@dapibus.org</td>
+                    <td>0334 836 4028</td>
+                    <td>Thane</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Carter</td>
+                    <td>urna.justo.faucibus@orci.com</td>
+                    <td>07079 826350</td>
+                    <td>Biez</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Stone</td>
+                    <td>velit.Aliquam.nisl@sitametrisus.com</td>
+                    <td>0800 1111</td>
+                    <td>Olivar</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Berk</td>
+                    <td>fringilla.porttitor.vulputate@taciti.edu</td>
+                    <td>(0101) 043 2822</td>
+                    <td>Sanquhar</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Philip</td>
+                    <td>turpis@euenimEtiam.org</td>
+                    <td>0500 571108</td>
+                    <td>Okara</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Kibo</td>
+                    <td>feugiat@urnajustofaucibus.co.uk</td>
+                    <td>07624 682306</td>
+                    <td>La Cisterna</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Bruno</td>
+                    <td>elit.Etiam.laoreet@luctuslobortisClass.edu</td>
+                    <td>07624 869434</td>
+                    <td>Rocca d"Arce</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Leonard</td>
+                    <td>blandit.enim.consequat@mollislectuspede.net</td>
+                    <td>0800 1111</td>
+                    <td>Lobbes</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Hamilton</td>
+                    <td>mauris@diam.org</td>
+                    <td>0800 256 8788</td>
+                    <td>Sanzeno</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Harding</td>
+                    <td>Lorem.ipsum.dolor@etnetuset.com</td>
+                    <td>0800 1111</td>
+                    <td>Obaix</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Emmanuel</td>
+                    <td>eget.lacus.Mauris@feugiatSednec.org</td>
+                    <td>(016977) 8208</td>
+                    <td>Saint-Remy-Geest</td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
         <footer>
           <div class="footer clearfix mb-0 text-muted">
             <div class="float-start">
@@ -360,9 +368,8 @@ require 'cek.php';
             </div>
             <div class="float-end">
               <p>Crafted with <span class="text-danger">
-                  <i class="bi bi-heart"></i>
-                </span> by <a href="https://saugi.me">Saugi</a>
-              </p>
+                <i class="bi bi-heart"></i>
+              </span> by <a href="https://saugi.me">Saugi</a>
             </div>
           </div>
         </footer>
@@ -371,7 +378,7 @@ require 'cek.php';
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/app.js"></script>
     <!-- Need: Apexcharts -->
-    <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+    <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+    <script src="assets/js/pages/simple-datatables.js"></script>
   </body>
 </html>
