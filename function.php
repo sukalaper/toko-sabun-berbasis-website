@@ -36,9 +36,9 @@ if(isset($_POST['addnewbarang'])){
   } else {
   $result = mysqli_query($conn, "INSERT INTO stok (namabarang, hargamodal, satuanberat, jumlahbarang, hargajual) VALUES ('$namabarang', '$hargamodal', '$satuanberat','$jumlahbarang', '$hargajual')");
     if($result){
-      header('location:pages/peringatan-tambah-barang-berhasil.php');
+      header('location:index.php');
     } else {
-      header('location:pages/peringatan-tambah-barang-gagal.php');
+      header('location:index.php');
     }
   }
 }

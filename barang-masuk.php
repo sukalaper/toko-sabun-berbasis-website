@@ -55,14 +55,14 @@ require 'cek.php';
           <div class="sidebar-menu">
             <ul class="menu">
               <li class="sidebar-title">Akumulasi Barang</li>
-              <li class="sidebar-item active ">
-                <a href="index.html" class='sidebar-link'>
+              <li class="sidebar-item ">
+                <a href="index.php" class='sidebar-link'>
                   <i class="bi bi-grid-fill"></i>
                   <span>Barang Awal</span>
                 </a>
               </li>
               <li class="sidebar-title">Kelola Barang</li>
-              <li class="sidebar-item ">
+              <li class="sidebar-item active ">
                 <a href="barang-masuk.php" class='sidebar-link'>
                   <i class="bi bi-bag-plus-fill"></i>
                   <span>Barang Masuk</span>
@@ -95,283 +95,168 @@ require 'cek.php';
           <a href="#" class="burger-btn d-block d-xl-none">
             <i class="bi bi-justify fs-3"></i>
           </a>
-        </header>
+        </header> 
         <div class="page-heading">
-          <h3>Toko Sabun Sukalaper</h3>
+          <h3>Kelola Barang Masuk</h3>
+          <p class="text-subtitle text-muted">Pada halaman kelola barang, diharapkan untuk mengisi data dengan se-teliti mungkin, klik <a href="#" data-bs-toggle="modal" data-bs-target="#myModal">tautan ini</a> untuk info lebih lanjut.</p>
         </div>
-        <div class="page-content">
-          <section class="row">
-            <div class="col-12 col-lg-9">
-              <div class="row">
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                          <div class="stats-icon purple mb-2">
-                            <i class="iconly-boldShow"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Profile Views</h6>
-                          <h6 class="font-extrabold mb-0">112.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                          <div class="stats-icon blue mb-2">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                          <div class="stats-icon green mb-2">
-                            <i class="iconly-boldAdd-User"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Following</h6>
-                          <h6 class="font-extrabold mb-0">80.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                          <div class="stats-icon red mb-2">
-                            <i class="iconly-boldBookmark"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Saved Post</h6>
-                          <h6 class="font-extrabold mb-0">112</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Alur Kerja Program Lebih Lanjut</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <h4>Profile Visit</h4>
-                    </div>
-                    <div class="card-body">
-                      <div id="chart-profile-visit"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="modal-body">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
               </div>
-              <div class="row">
-                <div class="col-12 col-xl-4">
-                  <div class="card">
-                    <div class="card-header">
-                      <h4>Profile Visit</h4>
-                    </div>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="d-flex align-items-center">
-                            <svg class="bi text-primary" width="32" height="32" fill="blue" style="width:10px">
-                              <use xlink:href="assets/images/bootstrap-icons.svg#circle-fill" />
-                            </svg>
-                            <h5 class="mb-0 ms-3">Europe</h5>
-                          </div>
-                        </div>
-                        <div class="col-6">
-                          <h5 class="mb-0">862</h5>
-                        </div>
-                        <div class="col-12">
-                          <div id="chart-europe"></div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="d-flex align-items-center">
-                            <svg class="bi text-success" width="32" height="32" fill="blue" style="width:10px">
-                              <use xlink:href="assets/images/bootstrap-icons.svg#circle-fill" />
-                            </svg>
-                            <h5 class="mb-0 ms-3">America</h5>
-                          </div>
-                        </div>
-                        <div class="col-6">
-                          <h5 class="mb-0">375</h5>
-                        </div>
-                        <div class="col-12">
-                          <div id="chart-america"></div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="d-flex align-items-center">
-                            <svg class="bi text-danger" width="32" height="32" fill="blue" style="width:10px">
-                              <use xlink:href="assets/images/bootstrap-icons.svg#circle-fill" />
-                            </svg>
-                            <h5 class="mb-0 ms-3">Indonesia</h5>
-                          </div>
-                        </div>
-                        <div class="col-6">
-                          <h5 class="mb-0">1025</h5>
-                        </div>
-                        <div class="col-12">
-                          <div id="chart-indonesia"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-xl-8">
-                  <div class="card">
-                    <div class="card-header">
-                      <h4>Latest Comments</h4>
-                    </div>
-                    <div class="card-body">
-                      <div class="table-responsive">
-                        <table class="table table-hover table-lg">
-                          <thead>
-                            <tr>
-                              <th>Name</th>
-                              <th>Comment</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="col-3">
-                                <div class="d-flex align-items-center">
-                                  <div class="avatar avatar-md">
-                                    <img src="assets/images/faces/5.jpg">
-                                  </div>
-                                  <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                </div>
-                              </td>
-                              <td class="col-auto">
-                                <p class=" mb-0">Congratulations on your graduation!</p>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td class="col-3">
-                                <div class="d-flex align-items-center">
-                                  <div class="avatar avatar-md">
-                                    <img src="assets/images/faces/2.jpg">
-                                  </div>
-                                  <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                </div>
-                              </td>
-                              <td class="col-auto">
-                                <p class=" mb-0">Wow amazing design! Can you make another tutorial for this design?</p>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
               </div>
-            </div>
-            <div class="col-12 col-lg-3">
-              <div class="card">
-                <div class="card-body py-4 px-4">
-                  <div class="d-flex align-items-center">
-                    <div class="avatar avatar-xl">
-                      <img src="assets/images/faces/1.jpg" alt="Face 1">
-                    </div>
-                    <div class="ms-3 name">
-                      <h5 class="font-bold">John Duck</h5>
-                      <h6 class="text-muted mb-0">@johnducky</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header">
-                  <h4>Recent Messages</h4>
-                </div>
-                <div class="card-content pb-4">
-                  <div class="recent-message d-flex px-4 py-3">
-                    <div class="avatar avatar-lg">
-                      <img src="assets/images/faces/4.jpg">
-                    </div>
-                    <div class="name ms-4">
-                      <h5 class="mb-1">Hank Schrader</h5>
-                      <h6 class="text-muted mb-0">@johnducky</h6>
-                    </div>
-                  </div>
-                  <div class="recent-message d-flex px-4 py-3">
-                    <div class="avatar avatar-lg">
-                      <img src="assets/images/faces/5.jpg">
-                    </div>
-                    <div class="name ms-4">
-                      <h5 class="mb-1">Dean Winchester</h5>
-                      <h6 class="text-muted mb-0">@imdean</h6>
-                    </div>
-                  </div>
-                  <div class="recent-message d-flex px-4 py-3">
-                    <div class="avatar avatar-lg">
-                      <img src="assets/images/faces/1.jpg">
-                    </div>
-                    <div class="name ms-4">
-                      <h5 class="mb-1">John Dodol</h5>
-                      <h6 class="text-muted mb-0">@dodoljohn</h6>
-                    </div>
-                  </div>
-                  <div class="px-4">
-                    <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Start Conversation</button>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header">
-                  <h4>Visitors Profile</h4>
-                </div>
-                <div class="card-body">
-                  <div id="chart-visitors-profile"></div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <footer>
-          <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-              <p>2021 &copy; Mazer</p>
-            </div>
-            <div class="float-end">
-              <p>Crafted with <span class="text-danger">
-                  <i class="bi bi-heart"></i>
-                </span> by <a href="https://saugi.me">Saugi</a>
-              </p>
             </div>
           </div>
-        </footer>
+        </div>
+        <section class="section">
+          <div class="card">
+            <div class="card-header">
+              <a href="perhitungan-laba.php" class="btn btn-primary" style="float: right; margin-left: 12px;">
+                <span class="bi bi-plus"></span> Export Data
+              </a>
+              <button type="button" class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#myModal">
+                <span class="bi bi-plus"></span> Tambah Barang Masuk
+              </button>
+            </div>
+            <div class="card-body">
+              <table class="table table-hover striped-row" id="table1">
+                <thead>
+                  <tr>
+                    <th>Tanggal Masuk</th>
+                    <th>Nama Barang Masuk</th>
+                    <th>Satuan Berat</th>
+                    <th>Jumlah Barang Masuk</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php
+                  $result_ambil_semua_data_stok = mysqli_query($conn,"SELECT * FROM masuk M, stok S WHERE S.idbarang = M.idbarang");
+                  while($data=mysqli_fetch_array($result_ambil_semua_data_stok)){
+                    $idbarang = $data['idbarang'];
+                    $idmasuk = $data['idmasuk'];
+                    $namabarang = $data['namabarang'];
+                    $satuanberat = $data['satuanberat'];
+                    $tanggal = $data['tanggal'];
+                    $qty = $data['qty'];
+                  ?>
+                  <tr>
+                    <td><?php echo $tanggal; ?></td>
+                    <td><?php echo $namabarang; ?></td>
+                    <td><?php echo $satuanberat; ?></td>
+                    <td><?php echo $qty; ?></td>
+                    <td>
+                      <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#edit<?=$idbarang;?>">
+                        <i data-feather="edit"></i> 
+                      </button>
+                      <input type="hidden" name="barangdihapus" value=" <?=$idbarang;?>">
+                      <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#delete<?=$idbarang;?>">
+                        <i data-feather="trash"></i>  
+                      </button>  
+                    </td>
+                  </tr>
+                  <?php
+                    }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/app.js"></script>
-    <!-- Need: Apexcharts -->
     <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="assets/js/pages/dashboard.js"></script>
   </body>
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Tambah Barang Masuk</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form method="post">
+          <div class="modal-body">
+            <select name="barangnya" class="form-control mb-3">
+              <?php
+              $ambildata = mysqli_query($conn, "SELECT * FROM stok");
+              while ($fetcharray = mysqli_fetch_array($ambildata)) {
+                $barangnya = $fetcharray['namabarang'];
+                $idbarangnya = $fetcharray['idbarang'];
+                $satuanberat = $fetcharray['satuanberat'];
+              ?>
+              <option value="<?php echo $idbarangnya; ?>"> <?php echo $barangnya; ?> <?php echo $satuanberat; ?></option>
+              <?php 
+                } 
+              ?>
+            </select>
+            <input type="number" name="qty" placeholder="Jumlah Barang" class="form-control mb-3" required>
+            <button type="submit" class="btn btn-primary" name="barangmasuk">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <?php
+  $result_ambil_semua_data_stok = mysqli_query($conn, "SELECT * FROM masuk M, stok S WHERE S.idbarang = M.idbarang");
+  while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
+    $idbarang = $data['idbarang'];
+    $idmasuk = $data['idmasuk'];
+    $namabarang = $data['namabarang'];
+    $satuanberat = $data['satuanberat'];
+    $tanggal = $data['tanggal'];
+    $qty = $data['qty'];
+  ?>
+  <div class="modal fade" id="edit<?=$idbarang;?>">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Barang</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form method="post">
+          <div class="modal-body">
+            <input type="hidden" name="idbarang" value="<?php echo $idbarang; ?>">
+            <input type="text" name="namabarang" value="<?php echo $namabarang; ?>" class="form-control mb-3" readonly>
+            <input type="number" name="satuanberat" value="<?php echo $satuanberat; ?>" class="form-control mb-3" readonly>
+            <input type="number" name="qty" value="<?php echo $qty; ?>" placeholder="Jumlah Barang" class="form-control mb-3" required>
+            <input type="hidden" name="idmasuk" value="<?php echo $idmasuk; ?>">
+            <button type="submit" class="btn btn-primary" name="updatebarangmasuk">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="delete<?=$idbarang;?>">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Hapus Barang?</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form method="post">
+          <div class="modal-body">
+            <input type="hidden" name="idmasuk" value="<?php echo $idmasuk; ?>">
+            <input type="hidden" name="idbarang" value="<?php echo $idbarang; ?>">
+            Apakah Anda Yakin Ingin Menghapus <?=$namabarang;?> <?=$satuanberat;?>?
+            <input type="hidden" name="kty" value="<?php echo $qty; ?>">
+            <button type="submit" class="btn btn-danger col-12 mt-3" name="hapusbarangmasuk">Hapus</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <?php
+    }
+  ?>
 </html>

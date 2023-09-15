@@ -118,8 +118,8 @@ require 'cek.php';
                 while($fetch=mysqli_fetch_array($ambildatastok)){
                 $namabarang = $fetch['namabarang'];
               ?>
-              <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <i class="bi bi-exclamation-triangle"></i> <strong>Perhatian!</strong> Stok barang <?=$namabarang;?> menipis.
+              <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-triangle"></i> <strong>Perhatian!</strong> Stok barang <strong><?=$namabarang;?></strong> menipis.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
             </div>
@@ -158,12 +158,12 @@ require 'cek.php';
                     <td> <?=$hargajual;?> </td>
                     <td> <?=$jumlahbarang;?> </td>
                     <td>
-                      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$idbarang;?>">
-                        <i class="bi bi-pencil-square"></i>
+                      <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#edit<?=$idbarang;?>">
+                        <i data-feather="edit"></i> 
                       </button>
                       <input type="hidden" name="barangdihapus" value=" <?=$idbarang;?>">
-                      <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#delete<?=$idbarang;?>">
-                        <i class="bi bi-trash"></i>
+                      <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#delete<?=$idbarang;?>">
+                        <i data-feather="trash"></i>  
                       </button>  
                     </td>
                   </tr>
