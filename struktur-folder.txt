@@ -23,7 +23,7 @@
     - harga-jual-lebih-rendah-dari-modal.php
     - xXx.php
     - xXx.php
-- database
+- database/
   - stok-barang.sql
 - index.php 
 - mix-manifest.json
