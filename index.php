@@ -71,7 +71,7 @@ require 'cek.php';
                 </a>
               </li>
               <li class="sidebar-item  ">
-                <a href="https://github.com/zuramai/mazer/blob/main/CONTRIBUTING.md" class='sidebar-link'>
+                <a href="barang-keluar.php" class='sidebar-link'>
                   <i class="bi bi-bag-dash-fill"></i>
                   <span>Barang Keluar</span>
                 </a>

@@ -54,9 +54,9 @@ if(isset($_POST['barangmasuk'])){
   $result_masuk = mysqli_query($conn, "INSERT INTO masuk (idbarang, qty) VALUES ('$barangnya','$qty')");
   $result_update_stok = mysqli_query($conn, "UPDATE stok SET jumlahbarang='$result_tambah_stok_sekarang' WHERE idbarang='$barangnya'");
   if($result_masuk && $result_update_stok){
-    header('location:../pages/peringatan-tambah-barang-berhasil.php');
+    header('location:tambah-barang-berhasil.php');
   } else {
-    header('location:barang-masuk.php');
+    header('location:');
   }
 }
 
@@ -215,16 +215,16 @@ if(isset($_POST['barangkeluar'])){
   $result_ambil_data = mysqli_fetch_array($result_cek_stok_sekarang);
   $result_stok_sekarang = $result_ambil_data['jumlahbarang'];
   if($qty > $result_stok_sekarang) {
-    header('location:../pages/peringatan-jika-barang-keluar-melebihi-stok-yang-ada.php');
+    header('location:barang-keluar-melebihi-stok-yang-ada.php');
     exit();
   }
   $result_tambah_stok_sekarang = $result_stok_sekarang - $qty;
   $result_keluar = mysqli_query($conn, "INSERT INTO keluar (idbarang, qty) VALUES ('$barangnya','$qty')");
   $result_update_stok = mysqli_query($conn, "UPDATE stok SET jumlahbarang='$result_tambah_stok_sekarang' WHERE idbarang='$barangnya'");
   if($result_keluar && $result_update_stok){
-    header('location:../index.php');
+    header('location:index.php');
   } else {
-    header('location:../index.php');
+    header('location:index.php');
   }
 }
 
