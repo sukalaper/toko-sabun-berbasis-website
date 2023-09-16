@@ -8,14 +8,14 @@
   - function.php
   - cek.php
 - pages/
-  - auth 
+  - auth/
     - auth-login.php
     - auth-logout.php
-  - kelola_stok
+  - kelola_stok/
     - barang-keluar.php
     - barang-masuk.php
     - perhitungan-laba.php
-  - alert
+  - alert/
     - kesalahan-login.php
     - tambah-barang-berhasil.php
     - tambah-barang-gagal.php
