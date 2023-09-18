@@ -1,6 +1,6 @@
 <?php
   if(isset($_SESSION['log'])){
   } else {
-    header('location:auth-login.php');
+    header('location:pages/auth/auth-login.php');
   }
 ?>

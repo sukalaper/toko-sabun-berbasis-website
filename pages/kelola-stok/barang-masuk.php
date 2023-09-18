@@ -1,22 +1,20 @@
 <?php
-require 'function.php';
-require 'cek.php';
+require '../../koneksi/function.php';
+require '../../koneksi/cek.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sukalaper - Barang Masuk</title>
-  <link rel="stylesheet" href="assets/css/main/app.css">
-  <link rel="stylesheet" href="assets/css/main/app-dark.css">
-  <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
-  <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/shared/iconly.css">
+  <link rel="stylesheet" href="../../assets/css/main/app.css">
+  <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
+  <link rel="shortcut icon" href="../../assets/images/logo/favicon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="../../assets/images/logo/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../../assets/css/shared/iconly.css">
 </head>
-
 <body>
   <div id="app">
     <div id="sidebar" class="active">
@@ -25,7 +23,7 @@ require 'cek.php';
           <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
               <a href="index.php">
-                <img src="assets/images/logo/logo.svg" alt="Logo" srcset="">
+                <img src="../../assets/images/logo/logo.svg" alt="Logo" srcset="">
               </a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -58,32 +56,32 @@ require 'cek.php';
           <ul class="menu">
             <li class="sidebar-title">Akumulasi Barang</li>
             <li class="sidebar-item ">
-              <a href="index.php" class='sidebar-link'>
+              <a href="../../index.php" class='sidebar-link'>
                 <i class="bi bi-grid-fill"></i>
                 <span>Barang Awal</span>
               </a>
             </li>
             <li class="sidebar-title">Kelola Barang</li>
             <li class="sidebar-item active ">
-              <a href="barang-masuk.php" class='sidebar-link'>
+              <a href="../kelola-stok/barang-masuk.php" class='sidebar-link'>
                 <i class="bi bi-bag-plus-fill"></i>
                 <span>Barang Masuk</span>
               </a>
             </li>
             <li class="sidebar-item  ">
-              <a href="barang-keluar.php" class='sidebar-link'>
+              <a href="../kelola-stok/barang-keluar.php" class='sidebar-link'>
                 <i class="bi bi-bag-dash-fill"></i>
                 <span>Barang Keluar</span>
               </a>
             </li>
             <li class="sidebar-title">Rekap Penjualan</li>
-            <a href="perhitungan-laba.php" class='sidebar-link'>
+            <a href="../kelola-stok/perhitungan-laba.php" class='sidebar-link'>
               <i class="bi bi-cash"></i>
               <span>Penghitungan Laba</span>
             </a>
             </li>
             <li class="sidebar-title">Halaman Administrator</li>
-            <a href="auth-logout.php" class='sidebar-link'>
+            <a href="../auth/auth-logout.php" class='sidebar-link'>
               <i class="bi bi bi-box-arrow-in-right"></i>
               <span>Keluar Halaman</span>
             </a>
@@ -132,7 +130,7 @@ require 'cek.php';
         <section class="section">
           <div class="card">
             <div class="card-header">
-              <a href="perhitungan-laba.php" class="btn btn-primary" style="float: right; margin-left: 12px;">
+              <a href="#" class="btn btn-primary" style="float: right; margin-left: 12px;">
                 <span class="bi bi-plus"></span> Export Data
               </a>
               <button type="button" class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -177,7 +175,7 @@ require 'cek.php';
                       </td>
                     </tr>
                   <?php
-                  }
+                    }
                   ?>
                 </tbody>
               </table>
@@ -186,10 +184,10 @@ require 'cek.php';
         </section>
       </div>
     </div>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
+    <script src="../../assets/js/pages/dashboard.js"></script>
 </body>
 <div class="modal fade" id="myModal">
   <div class="modal-dialog">
@@ -210,7 +208,7 @@ require 'cek.php';
             ?>
               <option value="<?php echo $idbarangnya; ?>"> <?php echo $barangnya; ?> <?php echo $satuanberat; ?></option>
             <?php
-            }
+              }
             ?>
           </select>
           <input type="number" name="qty" placeholder="Jumlah Barang" class="form-control mb-3" required>
@@ -270,7 +268,6 @@ while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
     </div>
   </div>
 <?php
-}
+  }
 ?>
-
 </html>

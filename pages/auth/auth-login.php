@@ -1,5 +1,5 @@
 <?php
-require 'function.php';
+require '../../koneksi/function.php';
 
 if (isset($_POST['login'])) {
   $email = $_POST['email'];
@@ -11,16 +11,16 @@ if (isset($_POST['login'])) {
   $result = mysqli_stmt_get_result($stmt);
   if ($row = mysqli_fetch_assoc($result)) {
     $_SESSION['log'] = true;
-    header('location:index.php');
+    header('location:../../index.php');
   } else {
-    header('location:peringatan-kesahalan-login.php');
+    header('location:../pesan-peringatan/peringatan-kesalahan-login.php');
   }
   mysqli_stmt_close($stmt);
 }
 
 if (!isset($_SESSION['log'])) {
 } else {
-  header('location:index.php');
+  header('location:../../index.php');
 }
 ?>
 
@@ -30,10 +30,10 @@ if (!isset($_SESSION['log'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
-    <link rel="stylesheet" href="assets/css/main/app.css">
-    <link rel="stylesheet" href="assets/css/pages/auth.css">
-    <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../../assets/css/main/app.css">
+    <link rel="stylesheet" href="../../assets/css/pages/auth.css">
+    <link rel="shortcut icon" href="../../assets/images/logo/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/logo/favicon.png" type="image/png">
   </head>
   <body>
     <div id="auth">
@@ -41,7 +41,7 @@ if (!isset($_SESSION['log'])) {
         <div class="col-lg-5 col-12">
           <div id="auth-left">
             <div class="auth-logo">
-              <a href="#"><img src="assets/images/logo/logo.svg" alt="Logo"></a>
+              <a href="#"><img src="../../assets/images/logo/logo.svg" alt="Logo"></a>
             </div>
             <h1 class="auth-title">Halaman Admin</h1>
             <p class="auth-subtitle mb-5">Masuk dengan akun yang telah Anda buat.</p>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['log'])) {
                   Biarkan saya tetap masuk
                 </label>
               </div>
-              <button href="index.php" name="login" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Masuk</button>
+              <button href="../../index.php" name="login" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Masuk</button>
             </form>
           </div>
         </div>

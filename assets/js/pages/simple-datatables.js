@@ -1,5 +1,6 @@
-
-let dataTable = new simpleDatatables.DataTable(document.getElementById("table1"));
+let dataTable = new simpleDatatables.DataTable(
+  document.getElementById("table1")
+);
 // Move "per page dropdown" selector element out of label
 // to make it work with bootstrap 5. Add bs5 classes.
 function adaptPageDropdown() {
@@ -37,8 +38,8 @@ function adaptPagination() {
 
 // Patch "per page dropdown" and pagination after table rendered
 dataTable.on("datatable.init", function () {
-    adaptPageDropdown();
-    adaptPagination();
+  adaptPageDropdown();
+  adaptPagination();
 });
 
 // Re-patch pagination after the page was changed

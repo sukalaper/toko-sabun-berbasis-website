@@ -1,4 +1,3 @@
-
 document.getElementById('basic').addEventListener('click', (e) => {
     Swal.fire('Any fool can use a computer')
 })

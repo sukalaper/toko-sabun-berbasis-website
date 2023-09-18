@@ -1,6 +1,6 @@
 <?php 
-require 'function.php';
-require 'cek.php';
+require 'koneksi/function.php';
+require 'koneksi/cek.php';
 ?>
 
 <!DOCTYPE html>
@@ -65,25 +65,25 @@ require 'cek.php';
               </li>
               <li class="sidebar-title">Kelola Barang</li>
               <li class="sidebar-item">
-                <a href="barang-masuk.php" class='sidebar-link'>
+                <a href="pages/kelola-stok/barang-masuk.php" class='sidebar-link'>
                   <i class="bi bi-bag-plus-fill"></i>
                   <span>Barang Masuk</span>
                 </a>
               </li>
               <li class="sidebar-item  ">
-                <a href="barang-keluar.php" class='sidebar-link'>
+                <a href="pages/kelola-stok/barang-keluar.php" class='sidebar-link'>
                   <i class="bi bi-bag-dash-fill"></i>
                   <span>Barang Keluar</span>
                 </a>
               </li>
               <li class="sidebar-title">Rekap Penjualan</li> 
-              <a href="perhitungan-laba.php" class='sidebar-link'>
+              <a href="pages/kelola-stok/perhitungan-laba.php" class='sidebar-link'>
                 <i class="bi bi-cash"></i>
                 <span>Penghitungan Laba</span>
               </a>
               </li>
               <li class="sidebar-title">Halaman Administrator</li>
-              <a href="auth-logout.php" class='sidebar-link'>
+              <a href="pages/auth/auth-logout.php" class='sidebar-link'>
                 <i class="bi bi bi-box-arrow-in-right"></i>
                 <span>Keluar Halaman</span>
               </a>
@@ -105,7 +105,7 @@ require 'cek.php';
         <section class="section">
           <div class="card">
             <div class="card-header">
-            <a href="kelola_stok/export-barang-awal.php" class="btn btn-primary" style="float: right; margin-left: 12px;">
+            <a href="#" class="btn btn-primary" style="float: right; margin-left: 12px;">
               <span class="bi bi-plus"></span> Export Data 
             </a>
             <button type="button" class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#myModal">
