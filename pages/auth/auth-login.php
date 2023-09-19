@@ -44,7 +44,7 @@ if (!isset($_SESSION['log'])) {
               <a href="#"><img src="../../assets/images/logo/logo.svg" alt="Logo"></a>
             </div>
             <h1 class="auth-title">Halaman Admin</h1>
-            <p class="auth-subtitle mb-5">Masuk dengan akun yang telah Anda buat.</p>
+            <p class="auth-subtitle mb-5">Masuk dengan akun yang telah ada.</p>
             <form method="post">
               <div class="form-group position-relative has-icon-left mb-4">
                 <input type="text" name="email" class="form-control form-control-xl" placeholder="Nama pengguna">
@@ -57,12 +57,6 @@ if (!isset($_SESSION['log'])) {
                 <div class="form-control-icon">
                   <i class="bi bi-shield-lock"></i>
                 </div>
-              </div>
-              <div class="form-check form-check-lg d-flex align-items-end">
-                <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label text-gray-600" for="flexCheckDefault">
-                  Biarkan saya tetap masuk
-                </label>
               </div>
               <button href="../../index.php" name="login" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Masuk</button>
             </form>

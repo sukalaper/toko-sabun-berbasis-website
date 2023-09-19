@@ -103,25 +103,21 @@ require '../../koneksi/cek.php';
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel4">Halaman Kelola Barang Keluar</h4>
+                <h4 class="modal-title" id="myModalLabel4">Halaman Kelola Barang Masuk</h4>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
                 </button>
               </div>
               <div class="modal-body">
                 <p>
-                  Halaman ini berisi tentang barang keluar yang telah di input sesuai dengan barang keluar. Halaman ini terkoneksi dengan halaman Perhitungan Laba. 
-                  Pada halaman ini dimohon lebih teliti dalam menginput data yang telah di keluarkan agar tidak terjadi selisih di kemudian hari.
+                  Halaman ini berisi tentang Barang Masuk yang telah di input dan terkoneksi sesuai dengan data pada Barang Awal.
+                  Pada halaman ini <b>dimohon lebih teliti dalam mengisi data</b> agar tidak terjadi selisih di kemudian hari.
                 </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                  <i class="bx bx-x d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Close</span>
-                </button>
                 <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
                   <i class="bx bx-check d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Accept</span>
+                  <span class="d-none d-sm-block">Ya, saya mengerti.</span>
                 </button>
               </div>
             </div>

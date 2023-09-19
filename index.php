@@ -100,7 +100,33 @@ require 'koneksi/cek.php';
         </header>
         <div class="page-heading">
           <h3>Toko Sabun Sukalaper</h3>
-          <p class="text-subtitle text-muted">Di mohon mengisi data dengan se-teliti mungkin agar tidak terjadi kesalahan.</p>
+          <p class="text-subtitle text-muted">Untuk info lebih lanjut tentang halaman ini, silahkan klik <a href="#backdrop" data-bs-toggle="modal">Disini</a>.
+          <div class="modal fade text-left" id="backdrop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" data-bs-backdrop="false" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel4">Halaman Kelola Barang Awal</h4>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <i data-feather="x"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Halaman ini berisi tentang total barang yang telah ada. Halaman ini terkoneksi dengan halaman Barang Masuk dan juga Barang Keluar.<br>
+                  <b>Dalam mengisi formulir satuan berat satuan Gram dan Mili adalah ukuran yang sama</b>.<br>
+                  Pada halaman ini <b>dimohon lebih teliti dalam mengisi data</b> agar tidak terjadi selisih di kemudian hari.
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                  <i class="bx bx-check d-block d-sm-none"></i>
+                  <span class="d-none d-sm-block">Ya, saya mengerti.</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
         </div>
         <section class="section">
           <div class="card">
