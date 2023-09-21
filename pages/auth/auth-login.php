@@ -58,7 +58,7 @@ if (!isset($_SESSION['log'])) {
                   <i class="bi bi-shield-lock"></i>
                 </div>
               </div>
-              <button href="../../index.php" name="login" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Masuk</button>
+              <button href="../../index.php" name="login" class="btn btn-primary btn-block btn-lg shadow-lg mt-1">Masuk</button>
             </form>
           </div>
         </div>

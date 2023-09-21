@@ -20,7 +20,7 @@ if(isset($_POST['addnewbarang'])){
   $hargajual = mysqli_real_escape_string($conn, $_POST['hargajual']);
   $result_check_barang = mysqli_query($conn, "SELECT idbarang, jumlahbarang FROM stok WHERE LOWER(namabarang) = LOWER('$namabarang') AND LOWER(satuanberat) = LOWER('$satuanberat')");
   if($hargajual < $hargamodal){
-    header('location:pages/peringatan-harga-jual.php');
+    header('location:pages/pesan-peringatan/peringatan-barang-keluar-melebihi-stok-sekarang.php');
     exit;
   }
   if(mysqli_num_rows($result_check_barang) > 0){

@@ -34,7 +34,7 @@
   <body>
     <div class="alert alert-light-danger color-danger">
       <i class="bi bi-exclamation-circle"></i>
-      Password salah
+      Password salah! Anda akan di alihkan kembali ke halaman login.
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
