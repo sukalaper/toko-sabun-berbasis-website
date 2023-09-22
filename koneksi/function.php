@@ -54,9 +54,9 @@ if(isset($_POST['barangmasuk'])){
   $result_masuk = mysqli_query($conn, "INSERT INTO masuk (idbarang, qty) VALUES ('$barangnya','$qty')");
   $result_update_stok = mysqli_query($conn, "UPDATE stok SET jumlahbarang='$result_tambah_stok_sekarang' WHERE idbarang='$barangnya'");
   if($result_masuk && $result_update_stok){
-    header('location:tambah-barang-berhasil.php');
+    header('location:../pesan-peringatan/tambah-barang-berhasil.php');
   } else {
-    header('location:');
+    header('location:../index.php');
   }
 }
 

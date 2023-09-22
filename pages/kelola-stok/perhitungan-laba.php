@@ -5,18 +5,16 @@ require '../../koneksi/cek.php';
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sukalaper - Barang Keluar</title>
+  <title>Sukalaper - Perhitungan Laba</title>
   <link rel="stylesheet" href="../../assets/css/main/app.css">
   <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
   <link rel="shortcut icon" href="../../assets/images/logo/favicon.svg" type="image/x-icon">
   <link rel="shortcut icon" href="../../assets/images/logo/favicon.png" type="image/png">
   <link rel="stylesheet" href="../../assets/css/shared/iconly.css">
 </head>
-
 <body>
   <div id="app">
     <div id="sidebar" class="active">
@@ -25,7 +23,7 @@ require '../../koneksi/cek.php';
           <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
               <a href="../../index.php">
-                <img src="assets/images/logo/logo.svg" alt="Logo" srcset="">
+                <img src="../../assets/images/logo/logo.svg" alt="Logo" srcset="">
               </a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -96,4 +94,92 @@ require '../../koneksi/cek.php';
         </div>
       </div>
     </div>
-    </svg> </svg> </svg> </svg>
+    <div id="main">
+      <header class="mb-3">
+        <a href="#" class="burger-btn d-block d-xl-none">
+          <i class="bi bi-justify fs-3"></i>
+        </a>
+      </header>
+      <div class="page-heading">
+        <h3>Kelola Perhitungan Laba</h3>
+        <p class="text-subtitle text-muted">Untuk info lebih lanjut tentang halaman ini, silahkan klik <a href="#backdrop" data-bs-toggle="modal">Disini</a>.
+        <div class="modal fade text-left" id="backdrop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" data-bs-backdrop="false" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel4">Halaman Kelola Perhitungan Laba</h4>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <i data-feather="x"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Halaman ini berisi tentang Kelola Perhitungan Laba yang terkoneksi dengan halaman Barang Keluar.<br>
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                  <i class="bx bx-check d-block d-sm-none"></i>
+                  <span class="d-none d-sm-block">Ya, saya mengerti.</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="section">
+          <div class="card">
+            <div class="card-header">
+              <a href="export-perhitungan-laba.php" class="btn btn-primary" style="float: right; margin-left: 12px;">
+                <span class="bi bi-plus"></span> Export Data
+              </a>
+            </div>
+            <div class="card-body">
+              <table class="table table-hover striped-row" id="table1">
+                <thead>
+                  <tr>
+                    <th>Tanggal</th>
+                    <th>ID Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Harga Modal</th>
+                    <th>Harga Jual</th>
+                    <th>Jumlah Barang Keluar</th>
+                    <th>Total Pendapatan Bersih</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $result_ambil_semua_data_stok = mysqli_query($conn, "SELECT * FROM keluar K, stok S WHERE S.idbarang = K.idbarang");
+                  while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
+                    $tanggal = $data['tanggal'];
+                    $idbarang = $data['idbarang']; 
+                    $namabarang = $data['namabarang'];
+                    $hargamodal = $data['hargamodal'];
+                    $hargajual = $data['hargajual'];
+                    $qty = $data['qty'];
+                    $laba = ($hargajual - $hargamodal) * $qty;
+                  ?>
+                    <tr>
+                      <td><?php echo $tanggal; ?></td>
+                      <td><?php echo $idbarang; ?></td>
+                      <td><?php echo $namabarang; ?></td>
+                      <td><?php echo $hargamodal; ?></td>
+                      <td><?php echo $hargajual; ?></td>
+                      <td><?php echo $qty; ?></td>
+                      <td><?php echo number_format($laba, 3, '.', '');?></td>
+                    </tr>
+                  <?php
+                    }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
+    <script src="../../assets/js/pages/dashboard.js"></script>
+</body>
+</html>

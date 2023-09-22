@@ -137,6 +137,7 @@ require '../../koneksi/cek.php';
               <table class="table table-hover striped-row" id="table1">
                 <thead>
                   <tr>
+                    <th>ID Barang</th>
                     <th>Tanggal Masuk</th>
                     <th>Nama Barang Masuk</th>
                     <th>Satuan Berat</th>
@@ -156,6 +157,7 @@ require '../../koneksi/cek.php';
                     $qty = $data['qty'];
                   ?>
                     <tr>
+                      <td><?php echo $idbarang; ?></td>
                       <td><?php echo $tanggal; ?></td>
                       <td><?php echo $namabarang; ?></td>
                       <td><?php echo $satuanberat; ?></td>

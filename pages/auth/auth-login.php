@@ -46,13 +46,13 @@ if (!isset($_SESSION['log'])) {
             <h1 class="auth-title">Halaman Admin</h1>
             <p class="auth-subtitle mb-5">Masuk dengan akun yang telah ada.</p>
             <form method="post">
-              <div class="form-group position-relative has-icon-left mb-4">
+              <div class="form-group position-relative has-icon-left mb-3">
                 <input type="text" name="email" class="form-control form-control-xl" placeholder="Nama pengguna">
                 <div class="form-control-icon">
                   <i class="bi bi-person"></i>
                 </div>
               </div>
-              <div class="form-group position-relative has-icon-left mb-4">
+              <div class="form-group position-relative has-icon-left mb-3">
                 <input type="password" name="password" class="form-control form-control-xl" placeholder="Kata sandi">
                 <div class="form-control-icon">
                   <i class="bi bi-shield-lock"></i>

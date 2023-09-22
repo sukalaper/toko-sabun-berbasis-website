@@ -5,6 +5,7 @@ require '../../koneksi/cek.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@ require '../../koneksi/cek.php';
   <link rel="shortcut icon" href="../../assets/images/logo/favicon.png" type="image/png">
   <link rel="stylesheet" href="../../assets/css/shared/iconly.css">
 </head>
+
 <body>
   <div id="app">
     <div id="sidebar" class="active">
@@ -22,8 +24,8 @@ require '../../koneksi/cek.php';
         <div class="sidebar-header position-relative">
           <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-              <a href="../../index.php">
-                <img src="assets/images/logo/logo.svg" alt="Logo" srcset="">
+              <a href="index.php">
+                <img src="../../assets/images/logo/logo.svg" alt="Logo" srcset="">
               </a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -43,7 +45,6 @@ require '../../koneksi/cek.php';
               </div>
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                 <path fill="currentColor" d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3l3.19.09m3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95l2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31Z"></path>
-
             </div>
             <div class="sidebar-toggler  x">
               <a href="#" class="sidebar-hide d-xl-none d-block">
@@ -124,69 +125,68 @@ require '../../koneksi/cek.php';
             </div>
           </div>
         </div>
-      </div>
-      <section class="section">
-        <div class="card">
-          <div class="card-header">
-            <a href="#" class="btn btn-primary" style="float: right; margin-left: 12px;">
-              <span class="bi bi-plus"></span> Export Data
-            </a>
-            <button type="button" class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#myModal">
-              <span class="bi bi-plus"></span> Tambah Barang Keluar
-            </button>
-          </div>
-          <div class="card-body">
-            <table class="table table-hover striped-row" id="table1">
-              <thead>
-                <tr>
-                  <th>ID Barang</th>
-                  <th>Tanggal Keluar</th>
-                  <th>Nama Barang Keluar</th>
-                  <th>Satuan Berat</th>
-                  <th>Jumlah Barang Keluar</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $result_ambil_semua_data_stok = mysqli_query($conn, "SELECT * FROM keluar K, stok S WHERE S.idbarang = K.idbarang");
-                while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
-                  $idbarang = $data['idbarang'];
-                  $tanggal = $data['tanggal'];
-                  $namabarang = $data['namabarang'];
-                  $satuanberat = $data['satuanberat'];
-                  $qty = $data['qty'];
-                ?>
+        <section class="section">
+          <div class="card">
+            <div class="card-header">
+              <a href="#" class="btn btn-primary" style="float: right; margin-left: 12px;">
+                <span class="bi bi-plus"></span> Export Data
+              </a>
+              <button type="button" class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#myModal">
+                <span class="bi bi-plus"></span> Tambah Barang Keluar
+              </button>
+            </div>
+            <div class="card-body">
+              <table class="table table-hover striped-row" id="table1">
+                <thead>
                   <tr>
-                    <td><?php echo $idbarang; ?></td>
-                    <td><?php echo $tanggal; ?></td>
-                    <td><?php echo $namabarang; ?></td>
-                    <td><?php echo $satuanberat; ?></td>
-                    <td><?php echo $qty; ?></td>
-                    <td>
-                      <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#edit<?= $idbarang; ?>">
-                        <i data-feather="edit"></i>
-                      </button>
-                      <input type="hidden" name="barangdihapus" value=" <?= $idbarang; ?>">
-                      <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#delete<?= $idbarang; ?>">
-                        <i data-feather="trash"></i>
-                      </button>
-                    </td>
+                    <th>ID Barang</th>
+                    <th>Tanggal Keluar</th>
+                    <th>Nama Barang Keluar</th>
+                    <th>Satuan Berat</th>
+                    <th>Jumlah Barang Keluar</th>
+                    <th>Aksi</th>
                   </tr>
-                <?php
+                </thead>
+                <tbody>
+                  <?php
+                  $result_ambil_semua_data_stok = mysqli_query($conn, "SELECT * FROM keluar K, stok S WHERE S.idbarang = K.idbarang");
+                  while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
+                    $idbarang = $data['idbarang'];
+                    $tanggal = $data['tanggal'];
+                    $namabarang = $data['namabarang'];
+                    $satuanberat = $data['satuanberat'];
+                    $qty = $data['qty'];
+                  ?>
+                    <tr>
+                      <td><?php echo $idbarang; ?></td>
+                      <td><?php echo $tanggal; ?></td>
+                      <td><?php echo $namabarang; ?></td>
+                      <td><?php echo $satuanberat; ?></td>
+                      <td><?php echo $qty; ?></td>
+                      <td>
+                        <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#edit<?= $idbarang; ?>">
+                          <i data-feather="edit"></i>
+                        </button>
+                        <input type="hidden" name="barangdihapus" value=" <?= $idbarang; ?>">
+                        <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#delete<?= $idbarang; ?>">
+                          <i data-feather="trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  <?php
                   }
-                ?>
-              </tbody>
-            </table>
+                  ?>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
-  </div>
-  <script src="../../assets/js/bootstrap.js"></script>
-  <script src="../../assets/js/app.js"></script>
-  <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
-  <script src="../../assets/js/pages/dashboard.js"></script>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
+    <script src="../../assets/js/pages/dashboard.js"></script>
 </body>
 <div class="modal fade" id="myModal">
   <div class="modal-dialog">
@@ -207,7 +207,7 @@ require '../../koneksi/cek.php';
             ?>
               <option value="<?php echo $idbarangnya; ?>"> <?php echo $barangnya; ?> <?php echo $satuanberat; ?></option>
             <?php
-              }
+            }
             ?>
           </select>
           <input type="number" name="qty" placeholder="Jumlah Barang" class="form-control mb-3" required>
@@ -267,6 +267,7 @@ while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
     </div>
   </div>
 <?php
-  }
+}
 ?>
+
 </html>
