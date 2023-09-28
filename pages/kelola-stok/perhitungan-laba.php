@@ -142,6 +142,7 @@ require '../../koneksi/cek.php';
                     <th>Nama Barang</th>
                     <th>Harga Modal</th>
                     <th>Harga Jual</th>
+                    <th>Diskon (%)</th>
                     <th>Jumlah Barang Keluar</th>
                     <th>Total Pendapatan Bersih</th>
                   </tr>
@@ -155,8 +156,9 @@ require '../../koneksi/cek.php';
                     $namabarang = $data['namabarang'];
                     $hargamodal = $data['hargamodal'];
                     $hargajual = $data['hargajual'];
+                    $diskon = ($hargajual - $hargamodal);
                     $qty = $data['qty'];
-                    $laba = ($hargajual - $hargamodal) * $qty;
+                    $laba = ($hargajual - $hargamodal) * $qty - $diskon;
                   ?>
                     <tr>
                       <td><?php echo $tanggal; ?></td>
@@ -164,8 +166,9 @@ require '../../koneksi/cek.php';
                       <td><?php echo $namabarang; ?></td>
                       <td><?php echo $hargamodal; ?></td>
                       <td><?php echo $hargajual; ?></td>
+                      <td><?php echo number_format($diskon, 3, ',', '');?></td>
                       <td><?php echo $qty; ?></td>
-                      <td><?php echo number_format($laba, 3, '.', '');?></td>
+                      <td><?php echo number_format($laba,3);?></td>
                     </tr>
                   <?php
                     }

@@ -155,7 +155,7 @@ require 'koneksi/cek.php';
               <tr>
                 <th>No</th>
                 <th>Nama Barang</th>
-                <th>Satuan Berat</th>
+                <th>Satuan Berat (g / ml)</th>
                 <th>Harga Modal</th>
                 <th>Harga Jual</th>
                 <th>Jumlah Barang</th>
@@ -178,8 +178,8 @@ require 'koneksi/cek.php';
                   <td> <?= $i++; ?> </td>
                   <td> <?= $namabarang; ?> </td>
                   <td> <?= $satuanberat; ?> </td>
-                  <td> <?= $hargamodal; ?> </td>
-                  <td> <?= $hargajual; ?> </td>
+                  <td> <?= number_format($hargamodal,); ?> </td>
+                  <td> <?= number_format($hargajual,); ?> </td>
                   <td> <?= $jumlahbarang; ?> </td>
                   <td>
                     <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#edit<?= $idbarang; ?>">
@@ -202,10 +202,8 @@ require 'koneksi/cek.php';
                         <div class="modal-body">
                           <input type="hidden" name="idbarang" value=" <?= $idbarang; ?>">
                           <input type="text" name="namabarang" value=" <?= $namabarang; ?>" class="form-control mb-3" required>
-                          <input type="number" name="hargamodal" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Modal (Rp)" class="form-control mb-0" required>
-                          <p style="font-size: 1px; color: red;">*Jika harga barang adalah Rp1.000 isi kolom dengan angka 1</p>
-                          <input type="number" name="satuanberat" placeholder="Satuan Berat" class="form-control mb-0" required>
-                          <p style="font-size: 1px; color: red;">*Secara matematis satuan <em>Gram</em> dan <em>Mili</em> adalah ukuran yang sama </p>
+                          <input type="number" name="hargamodal" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Modal (Rp)" class="form-control mb-3" required>
+                          <input type="number" name="satuanberat" placeholder="Satuan Berat" class="form-control mb-3" required>
                           <input type="number" name="hargajual" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Jual (Rp)" class="form-control mb-3" required>
                           <button type="submit" class="btn btn-primary" name="updatebarang">Submit</button>
                         </div>
@@ -267,12 +265,10 @@ require 'koneksi/cek.php';
       <form method="post">
         <div class="modal-body">
           <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control mb-3" required>
-          <input type="number" name="hargamodal" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Modal (Rp)" class="form-control mb-0" required>
-          <p style="font-size: 1px; color: red;">*Jika harga barang adalah Rp1.000 isi kolom dengan angka 1</p>
-          <input type="number" name="satuanberat" placeholder="Satuan Berat" class="form-control mb-0" required>
-          <p style="font-size: 1px; color: red;">*Secara matematis, satuan <em>Gram</em> dan <em>Mili</em> adalah ukuran yang sama </p>
+          <input type="number" name="hargamodal" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Modal (Rp)" class="form-control mb-3" required>
+          <input type="number" name="satuanberat" placeholder="Satuan Berat" class="form-control mb-3" required>
           <input type="number" name="jumlahbarang" placeholder="Jumlah Barang" class="form-control mb-3" required>
-          <input type="number" name="hargajual" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Jual (Rp)" class="form-control mb-3" required>
+          <input type="number" name="hargajual" placeholder="Harga Jual (Rp)" class="form-control mb-3" required>
           <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
         </div>
       </form>

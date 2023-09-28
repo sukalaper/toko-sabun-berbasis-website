@@ -210,6 +210,7 @@ require '../../koneksi/cek.php';
             }
             ?>
           </select>
+          <input type="number" name="diskon" step="0.1" pattern="\d+(\.\d{2})?" placeholder="Potongan Harga (Jika Ada)" class="form-control mb-3">
           <input type="number" name="qty" placeholder="Jumlah Barang" class="form-control mb-3" required>
           <button type="submit" class="btn btn-primary" name="barangkeluar">Submit</button>
         </div>
@@ -256,10 +257,10 @@ while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
         </div>
         <form method="post">
           <div class="modal-body">
-            <input type="hidden" name="idmasuk" value="<?php echo $idmasuk; ?>">
+            <input type="hidden" name="idkeluar" value="<?php echo $idkeluar; ?>">
             <input type="hidden" name="idbarang" value="<?php echo $idbarang; ?>">
             Apakah Anda Yakin Ingin Menghapus <?= $namabarang; ?> <?= $satuanberat; ?>?
-            <input type="hidden" name="kty" value="<?php echo $qty; ?>">
+            <input type="hidden" name="kty" value="<?php echo $qty; ?>"2>
             <button type="submit" class="btn btn-danger col-12 mt-3" name="hapusbarangkeluar">Hapus</button>
           </div>
         </form>
@@ -267,7 +268,7 @@ while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
     </div>
   </div>
 <?php
-}
+  }
 ?>
 
 </html>
