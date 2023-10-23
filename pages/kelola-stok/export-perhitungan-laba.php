@@ -12,6 +12,7 @@ require '../../koneksi/cek.php';
   <title>Sukalaper - Export Perhitungan Laba</title>
   <link rel="stylesheet" href="../../assets/css/main/app.css">
   <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
+  <link rel="stylesheet" href="../../assets/css/pages/modals.css">
   <link rel="shortcut icon" href="../../assets/images/logo/favicon.svg" type="image/x-icon">
   <link rel="shortcut icon" href="../../assets/images/logo/favicon.png" type="image/png">
   <link rel="stylesheet" href="../../assets/css/pages/fontawesome.css">

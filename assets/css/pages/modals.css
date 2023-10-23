@@ -1,0 +1,11 @@
+#backdrop::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Warna dan opasitas latar belakang buram */
+    backdrop-filter: blur(9px); /* Efek blur latar belakang */
+    z-index: -1; /* Membuat latar belakang di belakang modal */
+}

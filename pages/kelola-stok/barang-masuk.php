@@ -11,6 +11,7 @@ require '../../koneksi/cek.php';
   <title>Sukalaper - Barang Masuk</title>
   <link rel="stylesheet" href="../../assets/css/main/app.css">
   <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
+  <link rel="stylesheet" href="../../assets/css/pages/modals.css"> 
   <link rel="shortcut icon" href="../../assets/images/logo/favicon.svg" type="image/x-icon">
   <link rel="shortcut icon" href="../../assets/images/logo/favicon.png" type="image/png">
   <link rel="stylesheet" href="../../assets/css/shared/iconly.css">
@@ -126,7 +127,7 @@ require '../../koneksi/cek.php';
         <section class="section">
           <div class="card">
             <div class="card-header">
-              <a href="#" class="btn btn-primary" style="float: right; margin-left: 12px;">
+              <a href="#" class="btn btn-primary mb-2" style="float: left; margin-left: 1px;">
                 <span class="bi bi-plus"></span> Export Data
               </a>
               <button type="button" class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -160,7 +161,7 @@ require '../../koneksi/cek.php';
                       <td><?php echo $idbarang; ?></td>
                       <td><?php echo $tanggal; ?></td>
                       <td><?php echo $namabarang; ?></td>
-                      <td><?php echo $satuanberat; ?></td>
+                      <td><?php echo number_format($satuanberat); ?></td>
                       <td><?php echo $qty; ?></td>
                       <td>
                         <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#edit<?= $idbarang; ?>">

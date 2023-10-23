@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,16 +17,16 @@
   <script src="../../assets/js/pages/sweetalert2.js"></script>
   <script>
     Swal.fire({
-      icon: 'error',
-      title: 'Kesalahan pengguna',
-      text: 'Kata sandi yang Anda masukan salah, Anda akan dialihkan kembali dalam beberapa detik',
+      icon: 'success',
+      title: 'Perbarui barang berhasil',
+      text: 'Anda akan dialihkan kembali dalam beberapa detik',
       showConfirmButton: false, 
-      timer: 3000, 
+      timer: 2000, 
       timerProgressBar: true,
     });
     setTimeout(function() {
       goBack();
-    }, 3000); 
+    }, 2000); 
     function goBack() {
       window.location.href = document.referrer; 
     }

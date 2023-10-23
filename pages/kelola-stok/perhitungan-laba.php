@@ -5,16 +5,19 @@ require '../../koneksi/cek.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sukalaper - Perhitungan Laba</title>
   <link rel="stylesheet" href="../../assets/css/main/app.css">
   <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
+  <link rel="stylesheet" href="../../assets/css/pages/modals.css">
   <link rel="shortcut icon" href="../../assets/images/logo/favicon.svg" type="image/x-icon">
   <link rel="shortcut icon" href="../../assets/images/logo/favicon.png" type="image/png">
   <link rel="stylesheet" href="../../assets/css/shared/iconly.css">
 </head>
+
 <body>
   <div id="app">
     <div id="sidebar" class="active">
@@ -129,7 +132,7 @@ require '../../koneksi/cek.php';
         <section class="section">
           <div class="card">
             <div class="card-header">
-              <a href="export-perhitungan-laba.php" class="btn btn-primary" style="float: right; margin-left: 12px;">
+              <a href="export-perhitungan-laba.php" class="btn btn-primary mb-2" style="float: left; margin-left: 1px;">
                 <span class="bi bi-plus"></span> Export Data
               </a>
             </div>
@@ -152,26 +155,27 @@ require '../../koneksi/cek.php';
                   $result_ambil_semua_data_stok = mysqli_query($conn, "SELECT * FROM keluar K, stok S WHERE S.idbarang = K.idbarang");
                   while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
                     $tanggal = $data['tanggal'];
-                    $idbarang = $data['idbarang']; 
+                    $idbarang = $data['idbarang'];
                     $namabarang = $data['namabarang'];
+                    $satuanberat = $data['satuanberat'];
                     $hargamodal = $data['hargamodal'];
                     $hargajual = $data['hargajual'];
-                    $diskon = ($hargajual - $hargamodal);
+                    $diskon = $data['diskon']; 
                     $qty = $data['qty'];
-                    $laba = ($hargajual - $hargamodal) * $qty - $diskon;
+                    $laba = ($hargajual - $hargamodal) * $qty;
                   ?>
                     <tr>
                       <td><?php echo $tanggal; ?></td>
                       <td><?php echo $idbarang; ?></td>
-                      <td><?php echo $namabarang; ?></td>
+                      <td><?php echo $namabarang, "\r", number_format($satuanberat); ?></td>
                       <td><?php echo $hargamodal; ?></td>
                       <td><?php echo $hargajual; ?></td>
-                      <td><?php echo number_format($diskon, 3, ',', '');?></td>
+                      <td><?php echo $diskon; ?></td> 
                       <td><?php echo $qty; ?></td>
-                      <td><?php echo number_format($laba,3);?></td>
+                      <td><?php echo number_format($laba, 3); ?></td>
                     </tr>
                   <?php
-                    }
+                  }
                   ?>
                 </tbody>
               </table>
@@ -185,4 +189,5 @@ require '../../koneksi/cek.php';
     <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="../../assets/js/pages/dashboard.js"></script>
 </body>
+
 </html>

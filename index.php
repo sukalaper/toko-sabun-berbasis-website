@@ -11,6 +11,7 @@ require 'koneksi/cek.php';
   <title>Sukalaper - Administrator</title>
   <link rel="stylesheet" href="assets/css/main/app.css">
   <link rel="stylesheet" href="assets/css/main/app-dark.css">
+  <link rel="stylesheet" href="assets/css/pages/modals.css">
   <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/css/shared/iconly.css">
@@ -113,8 +114,8 @@ require 'koneksi/cek.php';
               <div class="modal-body">
                 <p>
                   Halaman ini berisi tentang total barang yang telah ada. Halaman ini terkoneksi dengan halaman Barang Masuk dan juga Barang Keluar.<br>
-                  <b>Dalam mengisi formulir satuan berat satuan Gram dan Mili adalah ukuran yang sama</b>.<br>
-                  Pada halaman ini <b>dimohon lebih teliti dalam mengisi data</b> agar tidak terjadi selisih di kemudian hari.
+                  Dalam formulir bagian Total Berat, <strong>satuan Gram dan Mili adalah ukuran yang sama maka dari itu isi formulir hanya berupa angka.</strong><br>
+                  Pada halaman ini <strong>dimohon lebih teliti dalam mengisi data</strong> agar tidak terjadi selisih di kemudian hari.
                 </p>
               </div>
               <div class="modal-footer">
@@ -129,7 +130,7 @@ require 'koneksi/cek.php';
         <section class="section">
           <div class="card">
             <div class="card-header">
-              <a href="#" class="btn btn-primary" style="float: right; margin-left: 12px;">
+              <a href="#" class="btn btn-primary mb-2" style="float: left; margin-left: 1px;">
                 <span class="bi bi-plus"></span> Export Data
               </a>
               <button type="button" class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -168,7 +169,7 @@ require 'koneksi/cek.php';
               $i = 1;
               while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
                 $namabarang = $data['namabarang'];
-                $satuanberat = $data['satuanberat'];
+                $satuanberat = number_format($data['satuanberat'],-1,);
                 $hargamodal = $data['hargamodal'];
                 $hargajual = $data['hargajual'];
                 $jumlahbarang = $data['jumlahbarang'];
@@ -178,8 +179,8 @@ require 'koneksi/cek.php';
                   <td> <?= $i++; ?> </td>
                   <td> <?= $namabarang; ?> </td>
                   <td> <?= $satuanberat; ?> </td>
-                  <td> <?= number_format($hargamodal,); ?> </td>
-                  <td> <?= number_format($hargajual,); ?> </td>
+                  <td> <?= number_format($hargamodal,3); ?> </td>
+                  <td> <?= number_format($hargajual,3); ?> </td>
                   <td> <?= $jumlahbarang; ?> </td>
                   <td>
                     <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#edit<?= $idbarang; ?>">
@@ -200,12 +201,12 @@ require 'koneksi/cek.php';
                       </div>
                       <form method="post">
                         <div class="modal-body">
-                          <input type="hidden" name="idbarang" value=" <?= $idbarang; ?>">
-                          <input type="text" name="namabarang" value=" <?= $namabarang; ?>" class="form-control mb-3" required>
-                          <input type="number" name="hargamodal" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Modal (Rp)" class="form-control mb-3" required>
-                          <input type="number" name="satuanberat" placeholder="Satuan Berat" class="form-control mb-3" required>
-                          <input type="number" name="hargajual" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Jual (Rp)" class="form-control mb-3" required>
-                          <button type="submit" class="btn btn-primary" name="updatebarang">Submit</button>
+                          <input type="hidden" name="idbarang" value="<?= $idbarang; ?>">
+                          <input type="text" name="namabarang" value="<?= $namabarang; ?>" class="form-control mb-3" required>
+                          <input type="tel" name="hargamodal" placeholder="*Harga Modal (Rp)" class="form-control mb-3" required>
+                          <input type="number" name="satuanberat" placeholder="*Satuan Berat (Gram/Mili)" class="form-control mb-3" required>
+                          <input type="tel" name="hargajual" placeholder="*Harga Jual (Rp)" class="form-control mb-3" required>
+                          <button type="submit" class="btn btn-primary" style="float: right" name="updatebarang">Perbarui Barang</button>
                         </div>
                       </form>
                     </div>
@@ -220,8 +221,9 @@ require 'koneksi/cek.php';
                       </div>
                       <form method="post">
                         <div class="modal-body">
-                          <input type="hidden" name="idbarang" value="<?= $idbarang; ?>"> Apakah Anda Yakin Ingin Menghapus <?= $namabarang; ?> <?= $satuanberat; ?>g/mL?
-                          <button type="submit" class="btn btn-danger col-12 mt-3" name="hapusbarang">Hapus</button>
+                          <input type="hidden" name="idbarang" value="<?= $idbarang; ?>">
+                          <p class="mb-3">Apakah Anda Yakin Ingin Menghapus <strong><?= $namabarang; ?> <?= $satuanberat; ?> g/mL</strong>?</p>
+                          <button type="submit" class="btn btn-danger" style="float: right" name="hapusbarang">Hapus</button>
                         </div>
                       </form>
                     </div>
@@ -243,7 +245,7 @@ require 'koneksi/cek.php';
           <div class="float-md-end">
             <p>Crafted with <span class="text-danger">
                 <i class="bi bi-heart"></i>
-              </span> by <a href="https://saugi.me">Saugi</a>
+              </span> by Anggiramadyansyah.</a>
           </div>
         </div>
       </footer>
@@ -263,13 +265,13 @@ require 'koneksi/cek.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <form method="post">
-        <div class="modal-body">
-          <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control mb-3" required>
-          <input type="number" name="hargamodal" step="0.001" pattern="\d+(\.\d{2})?" placeholder="Harga Modal (Rp)" class="form-control mb-3" required>
-          <input type="number" name="satuanberat" placeholder="Satuan Berat" class="form-control mb-3" required>
-          <input type="number" name="jumlahbarang" placeholder="Jumlah Barang" class="form-control mb-3" required>
-          <input type="number" name="hargajual" placeholder="Harga Jual (Rp)" class="form-control mb-3" required>
-          <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
+        <div class="modal-body modal-borderless">
+          <input type="text" name="namabarang" placeholder="*Nama Barang" class="form-control mb-3" required>
+          <input type="tel" name="hargamodal" placeholder="*Harga Modal" class="form-control mb-3" required>
+          <input type="number" name="satuanberat" placeholder="*Berat Satuan (Gram/Mili)" class="form-control mb-3" required>
+          <input type="number" name="jumlahbarang" placeholder="*Jumlah Barang" class="form-control mb-3" required>
+          <input type="tel" name="hargajual" placeholder="*Harga Jual" class="form-control mb-3" required>
+          <button type="submit" class="btn btn-primary mb-3" style="float: right;" name="addnewbarang">Submit</button>
         </div>
       </form>
     </div>
