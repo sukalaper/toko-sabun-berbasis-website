@@ -9,7 +9,7 @@ require '../../koneksi/cek.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sukalaper - Perhitungan Laba</title>
+  <title>Perhitungan Laba</title>
   <link rel="stylesheet" href="../../assets/css/main/app.css">
   <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
   <link rel="stylesheet" href="../../assets/css/pages/modals.css">
@@ -145,9 +145,8 @@ require '../../koneksi/cek.php';
                     <th>Nama Barang</th>
                     <th>Harga Modal</th>
                     <th>Harga Jual</th>
-                    <th>Diskon (%)</th>
                     <th>Jumlah Barang Keluar</th>
-                    <th>Total Pendapatan Bersih</th>
+                    <th>Pendapatan Bersih</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -160,7 +159,6 @@ require '../../koneksi/cek.php';
                     $satuanberat = $data['satuanberat'];
                     $hargamodal = $data['hargamodal'];
                     $hargajual = $data['hargajual'];
-                    $diskon = $data['diskon']; 
                     $qty = $data['qty'];
                     $laba = ($hargajual - $hargamodal) * $qty;
                   ?>
@@ -170,7 +168,6 @@ require '../../koneksi/cek.php';
                       <td><?php echo $namabarang, "\r", number_format($satuanberat); ?></td>
                       <td><?php echo $hargamodal; ?></td>
                       <td><?php echo $hargajual; ?></td>
-                      <td><?php echo $diskon; ?></td> 
                       <td><?php echo $qty; ?></td>
                       <td><?php echo number_format($laba, 3); ?></td>
                     </tr>

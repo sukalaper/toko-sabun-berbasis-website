@@ -9,7 +9,7 @@ require '../../koneksi/cek.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sukalaper - Barang Keluar</title>
+  <title>Barang Keluar</title>
   <link rel="stylesheet" href="../../assets/css/main/app.css">
   <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
   <link rel="stylesheet" href="../../assets/css/pages/modals.css">
@@ -143,7 +143,6 @@ require '../../koneksi/cek.php';
                     <th>ID Barang</th>
                     <th>Tanggal Keluar</th>
                     <th>Nama Barang Keluar</th>
-                    <th>Satuan Berat</th>
                     <th>Jumlah Barang Keluar</th>
                     <th>Aksi</th>
                   </tr>
@@ -161,8 +160,7 @@ require '../../koneksi/cek.php';
                     <tr>
                       <td><?php echo $idbarang; ?></td>
                       <td><?php echo $tanggal; ?></td>
-                      <td><?php echo $namabarang; ?></td>
-                      <td><?php echo number_format($satuanberat); ?></td>
+                      <td><?php echo $namabarang; ?> <?php echo number_format($satuanberat); ?></td>
                       <td><?php echo $qty; ?></td>
                       <td>
                         <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#edit<?= $idbarang; ?>">
@@ -190,7 +188,7 @@ require '../../koneksi/cek.php';
     <script src="../../assets/js/pages/dashboard.js"></script>
 </body>
 <div class="modal fade" id="myModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Tambah Barang Keluar</h4>
@@ -205,12 +203,16 @@ require '../../koneksi/cek.php';
               $barangnya = $fetcharray['namabarang'];
               $idbarangnya = $fetcharray['idbarang'];
               $satuanberat = $fetcharray['satuanberat'];
+              $hargamodal = $fetcharray['hargamodal'];
+              $hargajual = $fetcharray['hargajual'];
             ?>
               <option value="<?php echo $idbarangnya; ?>"> <?php echo $barangnya; ?> <?php echo $satuanberat; ?></option>
             <?php
             }
             ?>
           </select>
+          <input type="number" name="hargamodal" value="<?php echo $hargamodal; ?>" class="form-control mb-3" readonly>
+          <input type="number" name="hargajual" value="<?php echo $hargajual; ?>" class="form-control mb-3" readonly>
           <input type="number" name="qty" placeholder="Jumlah Barang" class="form-control mb-3" required>
           <button type="submit" class="btn btn-primary" name="barangkeluar">Submit</button>
         </div>
@@ -229,7 +231,7 @@ while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
   $qty = $data['qty'];
 ?>
   <div class="modal fade" id="edit<?= $idbarang; ?>">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Edit Barang</h4>
@@ -249,10 +251,10 @@ while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
     </div>
   </div>
   <div class="modal fade" id="delete<?= $idbarang; ?>">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Hapus Barang?</h4>
+          <h4 class="modal-title">Hapus Barang Keluar?</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <form method="post">
