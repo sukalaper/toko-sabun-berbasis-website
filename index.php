@@ -5,10 +5,11 @@ require 'koneksi/cek.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sukalaper - Administrator</title>
+  <title>Administrator</title>
   <link rel="stylesheet" href="assets/css/main/app.css">
   <link rel="stylesheet" href="assets/css/main/app-dark.css">
   <link rel="stylesheet" href="assets/css/pages/modals.css">
@@ -18,6 +19,7 @@ require 'koneksi/cek.php';
   <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css">
   <link rel="stylesheet" href="assets/css/pages/simple-datatables.css">
 </head>
+
 <body>
   <div id="app">
     <div id="sidebar" class="active">
@@ -169,7 +171,7 @@ require 'koneksi/cek.php';
               $i = 1;
               while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
                 $namabarang = $data['namabarang'];
-                $satuanberat = number_format($data['satuanberat'],-1,);
+                $satuanberat = number_format($data['satuanberat'], -1,);
                 $hargamodal = $data['hargamodal'];
                 $hargajual = $data['hargajual'];
                 $jumlahbarang = $data['jumlahbarang'];
@@ -179,8 +181,8 @@ require 'koneksi/cek.php';
                   <td> <?= $i++; ?> </td>
                   <td> <?= $namabarang; ?> </td>
                   <td> <?= $satuanberat; ?> </td>
-                  <td> <?= number_format($hargamodal,3); ?> </td>
-                  <td> <?= number_format($hargajual,3); ?> </td>
+                  <td> <?= number_format($hargamodal, 3); ?> </td>
+                  <td> <?= number_format($hargajual, 3); ?> </td>
                   <td> <?= $jumlahbarang; ?> </td>
                   <td>
                     <button type="button" class="btn icon btn-left" data-bs-toggle="modal" data-bs-target="#edit<?= $idbarang; ?>">
@@ -193,7 +195,7 @@ require 'koneksi/cek.php';
                   </td>
                 </tr>
                 <div class="modal fade" id="edit<?= $idbarang; ?>">
-                  <div class="modal-dialog">
+                  <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h4 class="modal-title">Edit Barang</h4>
@@ -213,7 +215,7 @@ require 'koneksi/cek.php';
                   </div>
                 </div>
                 <div class="modal fade" id="delete<?= $idbarang; ?>">
-                  <div class="modal-dialog">
+                  <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h4 class="modal-title">Hapus Barang?</h4>
@@ -253,28 +255,30 @@ require 'koneksi/cek.php';
   </div>
   <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/app.js"></script>
-  <!-- Need: Apexcharts -->
+  <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/static/js/pages/dashboard.js"></script>
   <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
   <script src="assets/js/pages/simple-datatables.js"></script>
 </body>
 <div class="modal fade" id="myModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Tambah Barang Baru</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <form method="post">
-        <div class="modal-body modal-borderless">
-          <input type="text" name="namabarang" placeholder="*Nama Barang" class="form-control mb-3" required>
-          <input type="tel" name="hargamodal" placeholder="*Harga Modal" class="form-control mb-3" required>
-          <input type="number" name="satuanberat" placeholder="*Berat Satuan (Gram/Mili)" class="form-control mb-3" required>
-          <input type="number" name="jumlahbarang" placeholder="*Jumlah Barang" class="form-control mb-3" required>
-          <input type="tel" name="hargajual" placeholder="*Harga Jual" class="form-control mb-3" required>
+        <div class="modal-body">
+          <input type="text" name="namabarang" placeholder="*Nama barang" class="form-control mb-3" required>
+          <input type="tel" name="hargamodal" placeholder="*Harga modal" class="form-control mb-3" required>
+          <input type="number" name="satuanberat" placeholder="*Berat satuan" class="form-control mb-3" required>
+          <input type="number" name="jumlahbarang" placeholder="*Jumlah barang" class="form-control mb-3" required>
+          <input type="tel" name="hargajual" placeholder="*Harga jual" class="form-control mb-3" required>
           <button type="submit" class="btn btn-primary mb-3" style="float: right;" name="addnewbarang">Submit</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
 </html>

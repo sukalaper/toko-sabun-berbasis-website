@@ -8,7 +8,7 @@ require '../../koneksi/cek.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sukalaper - Barang Masuk</title>
+  <title>Barang Masuk</title>
   <link rel="stylesheet" href="../../assets/css/main/app.css">
   <link rel="stylesheet" href="../../assets/css/main/app-dark.css">
   <link rel="stylesheet" href="../../assets/css/pages/modals.css"> 
@@ -189,7 +189,7 @@ require '../../koneksi/cek.php';
     <script src="../../assets/js/pages/dashboard.js"></script>
 </body>
 <div class="modal fade" id="myModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Tambah Barang Masuk</h4>
@@ -228,7 +228,7 @@ while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
   $qty = $data['qty'];
 ?>
   <div class="modal fade" id="edit<?= $idbarang; ?>">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Edit Barang</h4>
@@ -248,10 +248,10 @@ while ($data = mysqli_fetch_array($result_ambil_semua_data_stok)) {
     </div>
   </div>
   <div class="modal fade" id="delete<?= $idbarang; ?>">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Hapus Barang?</h4>
+          <h4 class="modal-title">Hapus Barang Masuk?</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <form method="post">
