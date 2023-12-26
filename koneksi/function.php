@@ -204,6 +204,7 @@ if(isset($_POST['updatebarangmasuk'])){
 // Menambah barang keluar
 if(isset($_POST['barangkeluar'])){
   $barangnya = $_POST['barangnya'];
+  $diskon = $_POST['diskon'];
   $qty = $_POST['qty'];
   $result_cek_stok_sekarang = mysqli_query($conn, "SELECT * FROM stok WHERE idbarang='$barangnya'");
   $result_ambil_data = mysqli_fetch_array($result_cek_stok_sekarang);
@@ -213,7 +214,7 @@ if(isset($_POST['barangkeluar'])){
     exit();
   }
   $result_tambah_stok_sekarang = $result_stok_sekarang - $qty;
-  $result_keluar = mysqli_query($conn, "INSERT INTO keluar (idbarang, qty) VALUES ('$barangnya','$qty')");
+  $result_keluar = mysqli_query($conn, "INSERT INTO keluar (idbarang, qty, diskon) VALUES ('$barangnya','$qty','$diskon')");
   $result_update_stok = mysqli_query($conn, "UPDATE stok SET jumlahbarang='$result_tambah_stok_sekarang' WHERE idbarang='$barangnya'");
   if($result_keluar && $result_update_stok){
     header('location:');

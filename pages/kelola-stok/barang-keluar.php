@@ -26,7 +26,7 @@ require '../../koneksi/cek.php';
           <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
               <a href="index.php">
-                <img src="../../assets/images/logo/logo.svg" alt="Logo" srcset="">
+                <img src="" alt="" srcset="">
               </a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -205,14 +205,16 @@ require '../../koneksi/cek.php';
               $satuanberat = $fetcharray['satuanberat'];
               $hargamodal = $fetcharray['hargamodal'];
               $hargajual = $fetcharray['hargajual'];
+              $diskon = $fetcharray['diskon'];
             ?>
               <option value="<?php echo $idbarangnya; ?>"> <?php echo $barangnya; ?> <?php echo $satuanberat; ?></option>
             <?php
             }
             ?>
           </select>
-          <input type="number" name="hargamodal" value="<?php echo $hargamodal; ?>" class="form-control mb-3" readonly>
-          <input type="number" name="hargajual" value="<?php echo $hargajual; ?>" class="form-control mb-3" readonly>
+          <input type="number" value="<?php echo $hargamodal; ?>" class="form-control mb-3" readonly>
+          <input type="number" value="<?php echo $hargajual; ?>" class="form-control mb-3" readonly>
+          <input type="number" name="diskon" placeholder="Diskon (jika ada)" class="form-control mb-3">
           <input type="number" name="qty" placeholder="Jumlah Barang" class="form-control mb-3" required>
           <button type="submit" class="btn btn-primary" name="barangkeluar">Submit</button>
         </div>
