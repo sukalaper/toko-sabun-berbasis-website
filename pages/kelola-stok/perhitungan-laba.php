@@ -1,6 +1,9 @@
 <?php
 require '../../koneksi/function.php';
 require '../../koneksi/cek.php';
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +29,7 @@ require '../../koneksi/cek.php';
           <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
               <a href="../../index.php">
-                <img src="../../assets/images/logo/logo.svg" alt="Logo" srcset="">
+                <img src="" alt="" srcset="">
               </a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -145,6 +148,7 @@ require '../../koneksi/cek.php';
                     <th>Nama Barang</th>
                     <th>Harga Modal</th>
                     <th>Harga Jual</th>
+                    <th>Diskon</th>
                     <th>Jumlah Barang Keluar</th>
                     <th>Pendapatan Bersih</th>
                   </tr>
@@ -160,14 +164,15 @@ require '../../koneksi/cek.php';
                     $hargamodal = $data['hargamodal'];
                     $hargajual = $data['hargajual'];
                     $qty = $data['qty'];
-                    $laba = ($hargajual - $hargamodal) * $qty;
-                  ?>
+                    $diskon = $data['diskon'];
+                    $laba = (($hargajual - $hargamodal) * $qty) - $diskon;?>
                     <tr>
                       <td><?php echo $tanggal; ?></td>
                       <td><?php echo $idbarang; ?></td>
                       <td><?php echo $namabarang, "\r", number_format($satuanberat); ?></td>
                       <td><?php echo $hargamodal; ?></td>
                       <td><?php echo $hargajual; ?></td>
+                      <td><?php echo $diskon; ?></td>
                       <td><?php echo $qty; ?></td>
                       <td><?php echo number_format($laba, 3); ?></td>
                     </tr>
@@ -186,5 +191,4 @@ require '../../koneksi/cek.php';
     <script src="../../assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="../../assets/js/pages/dashboard.js"></script>
 </body>
-
 </html>
