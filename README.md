@@ -52,9 +52,6 @@ Pastikan Anda memiliki lingkungan pengembangan yang sudah diatur sebelumnya.
    `Username/email: sukalaper@space.com`<br><br>
    `Password: 123456`
 
-## Lisensi
-Proyek ini dilisensikan di bawah MIT.
-
 ## Kontribusi
 Saya menyambut kontribusi sekecil apapun dari komunitas.
 
